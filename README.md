@@ -9,7 +9,6 @@
 
 ## Who's Down Project
 
-
 ### Project Description:
 Who's Down is a website where people can find or create events in their area. Anyone can head to the website, share their location, and see events or meet-ups in their area. The events will be split up across different categories, such as cycling, board gaming, basketball, poker, etc. 
 
