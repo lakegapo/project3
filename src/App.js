@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EditForm from "./components/EditForm/EditForm";
+import LandingPage from "./components/LandingPage/LandingPage";
 import './App.css';
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
 
 
-        <EditForm />
+        <LandingPage />
 
       </div>
     );
