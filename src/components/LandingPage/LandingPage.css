@@ -128,3 +128,27 @@
     font-family: 'Open Sans', sans-serif;
     color: #F8E9A1;
 }
+
+.modal-content {
+    background-color: white;
+}
+
+.modal-header {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.loginButton {
+    background-color: #24305E;
+    color: #F8E9A1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.signupButton {
+    background-color: #24305E;
+    color: #F8E9A1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form {
+    font-family: 'Open Sans', sans-serif;
+}
