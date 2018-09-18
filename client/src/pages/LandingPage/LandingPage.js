@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import logo from './Untitled.png';
 import './LandingPage.css';
+import GoogleLogin from 'react-google-login';
 
 
 class LandingPage extends Component {
     render() {
+        const responseGoogle = response => {
+            console.log(response);
+        }
         return (
             <div id="landingPage" className="container">
 
@@ -41,11 +45,12 @@ class LandingPage extends Component {
 
 
                 <div className="buttonContainer">
-                    <div className="row justify-content-center">
-                        <div className="col-sm-12">
-                            <button className="landingButton" id="loginButton">Login</button>
-                        </div>
-                    </div>
+                    <GoogleLogin
+                        clientId="1045470370648-ur33n32gcgim4acrnq904b91b1q22cjc.apps.googleusercontent.com"
+                        buttonText="Login"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                    />
                     <div className="row justify-content-center">
                         <div className="col-sm-12">
                             <hr />
