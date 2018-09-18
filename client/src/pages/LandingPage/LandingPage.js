@@ -17,7 +17,7 @@ class LandingPage extends Component {
 
                 <section className="rw-wrapper">
                     <h2 className="rw-sentence">
-                        <div class="rw-words rw-words-1">
+                        <div className="rw-words rw-words-1">
                             <span>Hang Out?</span>
                             <span>Biking?</span>
                             <span>Car Meet?</span>
