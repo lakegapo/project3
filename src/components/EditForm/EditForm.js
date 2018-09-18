@@ -24,16 +24,16 @@ class EditForm extends Component {
 
                         <form>
                             <div className="form-group">
-                                <label for="eventName">Event Name</label>
+                                <label htmlFor="eventName">Event Name</label>
                                 <input type="eventName" className="form-control" id="eventName" aria-describedby="eventName" placeholder="Enter event name" />
                             </div>
                             <div className="form-group">
-                                <label for="eventAddress">Address</label>
+                                <label htmlFor="eventAddress">Address</label>
                                 <input type="eventAddress" className="form-control" id="eventAddress" placeholder="Enter event address" />
                             </div>
-                            <div class="form-group">
-                                <label for="eventDescription">Event Description</label>
-                                <textarea class="form-control" id="eventDesciption" rows="3"></textarea>
+                            <div className="form-group">
+                                <label htmlFor="eventDescription">Event Description</label>
+                                <textarea className="form-control" id="eventDesciption" rows="3"></textarea>
                             </div>
                             <button type="submit" className="btn submitButton">Create Event</button>
                         </form>
