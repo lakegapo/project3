@@ -48,7 +48,7 @@ class LandingPage extends Component {
 
                 <div className="buttonContainer">
                     <div className="row justify-content-center">
-                        <div className="col-sm-12">
+                        <div className="col-sm-12 buttonRow">
                             <GoogleLogin
                                 clientId="1045470370648-ur33n32gcgim4acrnq904b91b1q22cjc.apps.googleusercontent.com"
                                 buttonText="Login"
@@ -60,80 +60,13 @@ class LandingPage extends Component {
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-sm-12">
-                            <hr />
-                            <button className="landingButton" id="SignupButton" data-toggle="modal" data-target="#signupModal">Sign Up</button>
-                            <hr />
-
-                        </div>
-                    </div>
-                    <div className="row justify-content-center">
-                        <div className="col-sm-12">
+                        <div className="col-sm-12 buttonRow">
                             <a href=""><button className="landingButton" id="viewEventsButton">View Events</button></a>
                         </div>
                     </div>
                 </div>
 
                 <h4 id="copyright">&copy; 2018 Team Snowstorm</h4>
-
-                {/* Login Modal */}
-                <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-centered" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="loginModalTitle">Login</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <form>
-                                    <div className="form-group">
-                                        <label htmlFor="username">Username</label>
-                                        <input type="username" className="form-control" id="loginUsername" aria-describedby="loginUsername" placeholder="Enter Username" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="password">Password</label>
-                                        <input type="password" className="form-control" id="loginPassword" placeholder="**********" />
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn loginButton">Login</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Signup Modal */}
-                <div className="modal fade" id="signupModal" tabIndex="-2" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-centered" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="loginModalTitle">Are you down?</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <form>
-                                    <div className="form-group">
-                                        <label htmlFor="username">Username</label>
-                                        <input type="username" className="form-control" id="signupUsername" aria-describedby="signupUsername" placeholder="Enter Username" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="password">Password</label>
-                                        <input type="password" className="form-control" id="signupPassword" placeholder="**********" />
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn signupButton">Sign Up</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
             </div>
         );
