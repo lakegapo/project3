@@ -56,8 +56,6 @@ class LandingPage extends Component {
                                 // onFailure={responseGoogle}
                                 className="landingButton"
                                 id="loginButton"
-                                data-toggle="modal"
-                                data-target="#loginModal"
                             />
                         </div>
                     </div>
