@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   var Users = sequelize.define("User", {
-    googleID: DataTypes.STRING,
+    googleId: DataTypes.STRING,
     email: DataTypes.STRING,
     imageUrl: DataTypes.TEXT,
     lastName: DataTypes.TEXT,

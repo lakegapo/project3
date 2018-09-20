@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { EventsList, EventsListItems } from "../Events";
+import { EventsList, EventsListItems } from "../../components/Events";
+import { Container, Row, Col } from '../../components/Grid'
 
 export class ListedEvents extends Component {
 
