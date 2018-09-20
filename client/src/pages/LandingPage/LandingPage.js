@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import logo from './Untitled.png';
 import './LandingPage.css';
+import GoogleLogin from 'react-google-login';
 
 
 class LandingPage extends Component {
     render() {
+        const responseGoogle = response => {
+            console.log(response);
+        }
+        const createUser = response => {
+            console.log(response.profileObj);
+        }
         return (
             <div id="landingPage" className="container">
 
@@ -42,7 +49,16 @@ class LandingPage extends Component {
                 <div className="buttonContainer">
                     <div className="row justify-content-center">
                         <div className="col-sm-12">
-                            <button className="landingButton" id="loginButton" data-toggle="modal" data-target="#loginModal">Login</button>
+                            <GoogleLogin
+                                clientId="1045470370648-ur33n32gcgim4acrnq904b91b1q22cjc.apps.googleusercontent.com"
+                                buttonText="Login"
+                                onSuccess={createUser}
+                                // onFailure={responseGoogle}
+                                className="landingButton"
+                                id="loginButton"
+                                data-toggle="modal"
+                                data-target="#loginModal"
+                            />
                         </div>
                     </div>
                     <div className="row justify-content-center">
