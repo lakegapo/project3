@@ -11,7 +11,7 @@ class LandingPage extends Component {
         }
         const createUser = response => {
             sessionStorage.setItem("googleId", response.profileObj.googleId);
-            // And then code to create user goes below
+            console.log(response.profileObj);
         }
         return (
             <div id="landingPage" className="container">
