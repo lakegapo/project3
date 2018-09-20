@@ -1,0 +1,23 @@
+body {
+    background-image: url('../../assets/clem-onojeghuo-196232-unsplash.jpg');
+    
+  }
+  .joinbutton {
+    background: #374785;
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 1.5em;
+  }
+  
+  .eventName {
+    color: aliceblue;
+    background: #f76c6c;
+    border-radius: 10px;
+    padding: 2%;
+  }
+  
+
+  
+.gapDiv {
+  margin-top: 200px;
+}

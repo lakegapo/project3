@@ -1,28 +1,60 @@
-.App {
-  text-align: center;
+body {
+  background-image: url('./assets/clem-onojeghuo-196232-unsplash.jpg');
+  
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
+.joinbutton {
+  background: #374785;
+  border-radius: 10px;
+  color: aliceblue;
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+.eventName {
+  color: aliceblue;
+  background: #f76c6c;
+  border-radius: 10px;
+  padding: 2%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.map {
+  
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+   .eventName {
+     width: 80%;
+   }
+   .joinbutton {
+     width:30%;
+     margin: 5%;
+   }
+   /* .map {
+     width: 75%;
+     margin: 5%;
+     border: 1px solid rgb(255, 127, 80);
+   } */
+  
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .eventname {
+    width: 80%;
+  }
+  .joinbutton {
+    width:50%;
+    margin: 5%
+  }
+  /* .map {
+    width: 60%;
+    margin: 5%;
+    border: 1px solid rgb(255, 127, 80);
+  } */
+  
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  
+} 
