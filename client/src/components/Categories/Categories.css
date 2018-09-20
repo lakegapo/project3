@@ -1,0 +1,33 @@
+@keyframes btnCategoriesHoverColorShift {
+    from {color: white}
+    to {color: lightblue}
+}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.categories {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.appHeader {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.btnCategories {
+    background-color: lightcoral;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 70%;
+    color: white;
+    cursor: pointer;
+    width: 70%;
+    padding: 2%;
+}
+.btnCategories:hover {
+    box-shadow: 5px 5px 5px grey;
+    animation-name: btnCategoriesHoverColorShift;
+    animation-duration: 1.5s;
+    color: lightblue;
+}
+.btnCategories:active {
+    color: lightblue;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Eventlist extends Component {
+class EventDetail extends Component {
     // state = {  }
     render() { 
         return (
@@ -27,4 +27,4 @@ class Eventlist extends Component {
     }
 }
  
-export default Eventlist;
+export default EventDetail;
