@@ -10,6 +10,7 @@ class LandingPage extends Component {
             console.log(response);
         }
         const createUser = response => {
+            sessionStorage.setItem("googleId", response.profileObj.googleId);
             console.log(response.profileObj);
         }
         return (
