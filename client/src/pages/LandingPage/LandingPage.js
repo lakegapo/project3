@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './Untitled.png';
 import './LandingPage.css';
 import GoogleLogin from 'react-google-login';
-
+import API from '../../utils/API';
 
 class LandingPage extends Component {
     render() {
@@ -12,6 +12,7 @@ class LandingPage extends Component {
         const createUser = response => {
             sessionStorage.setItem("googleId", response.profileObj.googleId);
             console.log(response.profileObj);
+            API.createUser(response.profileObj);
         }
         return (
             <div id="landingPage" className="container">
@@ -62,7 +63,7 @@ class LandingPage extends Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-sm-12 buttonRow">
-                            <a href=""><button className="landingButton" id="viewEventsButton">View Events</button></a>
+                            <a href="/home"><button className="landingButton" id="viewEventsButton">View Events</button></a>
                         </div>
                     </div>
                 </div>

@@ -27,10 +27,10 @@ module.exports = {
     createOne: (req, res) => {
         const user = {
             email: req.body.email,
-            //we will generate a real hash and salt if we intend
-            //for users to work
-            hash: 123123,
-            salt: 123123
+            googleId: req.body.googleId,
+            lastName: req.body.familyName,
+            firstName: req.body.givenName,
+            imageUrl: req.body.imageUrl
         }
         models.User.create(user)
         .then(resp => {
