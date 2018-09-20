@@ -1,0 +1,21 @@
+#eventDescription {
+    /* width: 45%; */
+    border: 1px powderblue solid;
+    background: rgb(222, 237, 246);
+    text-align: left;
+    margin: 5%;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.eventDescriptionHeader {
+    background-color: #374785;
+    color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    font-size: 20px;
+}
