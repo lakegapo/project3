@@ -9,6 +9,9 @@ class LandingPage extends Component {
         const responseGoogle = response => {
             console.log(response);
         }
+        const createUser = response => {
+            console.log(response.profileObj);
+        }
         return (
             <div id="landingPage" className="container">
 
@@ -45,12 +48,18 @@ class LandingPage extends Component {
 
 
                 <div className="buttonContainer">
-                    <GoogleLogin
-                        clientId="1045470370648-ur33n32gcgim4acrnq904b91b1q22cjc.apps.googleusercontent.com"
-                        buttonText="Login"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                    />
+                    <div className="row justify-content-center">
+                        <div className="col-sm-12">
+                            <GoogleLogin
+                                clientId="1045470370648-ur33n32gcgim4acrnq904b91b1q22cjc.apps.googleusercontent.com"
+                                buttonText="Login"
+                                onSuccess={createUser}
+                                // onFailure={responseGoogle}
+                                className="landingButton"
+                                id="loginButton"
+                            />
+                        </div>
+                    </div>
                     <div className="row justify-content-center">
                         <div className="col-sm-12">
                             <hr />
