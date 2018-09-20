@@ -1,0 +1,16 @@
+.btnJoinEvent {
+    background-color: lightcoral;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 70%;
+    color: white;
+    cursor: pointer;
+    padding: 2%;
+}
+.btnJoinEvent a {
+    text-decoration: none;
+    color: white;
+}
+.btnJoinEvent:active {
+    background-color: plum;
+}
