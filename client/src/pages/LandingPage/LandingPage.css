@@ -1,0 +1,160 @@
+#landingPage {
+    background-image: url('./background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid #AAA;
+    padding: 25px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+}
+
+#logo {
+    width: 50%;
+}
+
+
+
+.buttonContainer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rw-wrapper{
+	width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    margin-top: 25px;
+}
+
+.rw-sentence{
+	margin: 0;
+	text-align: center;
+}
+
+.rw-sentence span{
+	color: #F76C6C;
+	white-space: nowrap;
+	font-size: 125%;
+	font-weight: normal;
+}
+
+.rw-words{
+	display: inline;
+}
+
+.rw-words span{
+    top: 0;
+    left: 0;
+	position: absolute;
+	opacity: 0;
+	overflow: hidden;
+	width: 100%;
+    color: #A8D0E6;
+}
+
+.rw-words-1 span{
+	animation: rotateWordsFirst 18s linear infinite 0s;
+}
+.rw-words-2 span{
+	animation: rotateWordsSecond 18s linear infinite 0s;
+}
+.rw-words span:nth-child(2) { 
+	animation-delay: 3s; 
+	color: #A8D0E6;
+}
+.rw-words span:nth-child(3) { 
+	animation-delay: 6s; 
+	color: #A8D0E6;	
+}
+.rw-words span:nth-child(4) { 
+	animation-delay: 9s; 
+	color: #A8D0E6;
+}
+.rw-words span:nth-child(5) { 
+	animation-delay: 12s; 
+	color: #A8D0E6;
+}
+.rw-words span:nth-child(6) {  
+	animation-delay: 15s; 
+	color: #A8D0E6;
+}
+
+@keyframes rotateWordsFirst {
+    0% { opacity: 1; animation-timing-function: ease-in; height: 0px; }
+    8% { opacity: 1; height: 60px; }
+    19% { opacity: 1; height: 60px; }
+	25% { opacity: 0; height: 60px; }
+    100% { opacity: 0; }
+}
+
+@keyframes rotateWordsSecond {
+    0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
+    10% { opacity: 0.3; width: 0px; }
+	20% { opacity: 1; width: 100%; }
+    27% { opacity: 0; width: 100%; }
+    100% { opacity: 0; }
+}
+
+.landingButton {
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+#landingPageText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    margin-top: 25px;
+    color: white;
+}
+
+#copyright {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #F8E9A1;
+}
+
+.modal-content {
+    background-color: white;
+}
+
+.modal-header {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.loginButton {
+    background-color: #24305E;
+    color: #F8E9A1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.buttonRow {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.signupButton {
+    background-color: #24305E;
+    color: #F8E9A1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form {
+    font-family: 'Open Sans', sans-serif;
+}

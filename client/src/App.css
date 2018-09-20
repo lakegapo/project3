@@ -16,6 +16,7 @@ body {
   padding: 2%;
 }
 
+<<<<<<< HEAD:src/App.css
 .map {
   
 }
@@ -36,6 +37,11 @@ body {
    } */
   
 } 
+=======
+.App-intro {
+  font-size: large;
+}
+>>>>>>> ec654e2787aad8930f0f43106b4cc582692623f3:client/src/App.css
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
