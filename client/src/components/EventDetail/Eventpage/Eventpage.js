@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import EventDescription from '../../components/EventDetail/EventDescription';
-import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
-import "../../components/EventDetail/Eventpage/eventpagestyle.css";
+import EventDescription from '../EventDescription/EventDescription';
+import GoogleApiWrapper from '../EventMap/EventMap';
+import "./eventpagestyle.css";
 
 
- class EventDetail extends Component {
+ class EventPage extends Component {
   render() {
     return (
       
@@ -44,4 +44,4 @@ import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 
 
 
-export default EventDetail;
+export default EventPage;
