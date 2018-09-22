@@ -5,7 +5,6 @@ module.exports = function (sequelize, DataTypes) {
     imageUrl: DataTypes.TEXT,
     lastName: DataTypes.TEXT,
     firstName: DataTypes.TEXT
-
   });
 
   Users.associate = function(models) {

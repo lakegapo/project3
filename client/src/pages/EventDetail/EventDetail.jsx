@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import EventDescription from '../../components/EventDetail/EventDescription/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
 import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 import JoinEventButton from '../../components/EventButton/JoinEventButton'
 
-
  class EventDetail extends Component {
+     
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        axios.get("/api/eventdetail/" + id)
+            .then(resp => {
+                console.log(resp);
+                this.setState({
+                    items: resp.data
+                })
+            });
+    };
+
   render() {
     return (
       

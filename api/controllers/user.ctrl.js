@@ -8,22 +8,23 @@ module.exports = {
                 id: id
             }
         })
-        .then(resp => {
-            res.json(resp);
-        })
-        .catch(err => {
-            res.json(err).status(400);
-        });
+            .then(resp => {
+                res.json(resp);
+            })
+            .catch(err => {
+                res.json(err).status(400);
+            });
     },
     getAll: (req, res) => {
         models.User.findAll()
-        .then(resp => {
-            res.json(resp);
-        })
-        .catch(err => {
-            res.json(err).status(400);
-        });
+            .then(resp => {
+                res.json(resp);
+            })
+            .catch(err => {
+                res.json(err).status(400);
+            });
     },
+//createOne checks if the googleid has hit db before, if not creates row and either way sends back user object as response so front end can store db id in session storage
     createOne: (req, res) => {
         const user = {
             email: req.body.email,
@@ -32,55 +33,17 @@ module.exports = {
             firstName: req.body.givenName,
             imageUrl: req.body.imageUrl
         }
-        models.User.create(user)
-        .then(resp => {
-            res.json(resp);
-        })
-        .catch(err => {
-            res.json(err).status(400);
-        })
-    },
-    updateOne: (req, res) => {
-        const id = req.params.id;
-        const newUser = {
-            email: req.body.email,
-            //we will generate a real hash and salt if we intend
-            //for users to work
-            hash: 123123,
-            salt: 123123
-        }
-        models.User.update(newUser, {
+        models.User.findOrCreate({
             where: {
-                id: id
-            }
+                googleId: user.googleId
+            },
+            defaults: user
         })
-        .then(resp => {
-            res.json(resp);
-        })
-        .catch(err => {
-            res.json(err).status(400);
-        });
-    },
-    deleteOne: (req, res) => {
-        const id = req.params.id;
-        const newUser = {
-            email: req.body.email,
-            //we will generate a real hash and salt if we intend
-            //for users to work
-            hash: 123123,
-            salt: 123123
-        }
-        models.User.destroy({
-            where: {
-                id: id
-            }
-        })
-        .then(resp => {
-            res.json(resp);
-        })
-        .catch(err => {
-            res.json(err).status(400);
-        });
+            .then(resp => {
+                res.send(resp[0].dataValues);
+            })
+            .catch(err => {
+                res.json(err).status(400);
+            })
     }
-
 }
