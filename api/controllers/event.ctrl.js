@@ -20,5 +20,15 @@ module.exports = {
       .catch(err => {
         res.json(err).status(400);
       })
+  },
+
+  getAll: (req, res) => {
+    models.Event.findAll()
+    .then(resp => {
+      res.json(resp);
+    })
+    .catch(err => {
+      res.json(err).status(400);
+    });
   }
 };
