@@ -1,8 +1,9 @@
 #createForm {
     background-image: url("./background.jpg");
     background-repeat: no-repeat;
+    position: center center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     border: 1px solid #AAA;
     padding: 25px;
     margin-top: 10%;
@@ -41,4 +42,22 @@ input {
 
 #inputCityState {
     height: 55%;
+}
+
+#inputCategory {
+    height: 35px;
+}
+
+option {
+    text-align: center;
+}
+
+#dateHeader {
+    text-align: center;
+}
+
+#react-calendar {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
