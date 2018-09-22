@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-export default EventDetail;
 import EventDescription from '../../components/EventDetail/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
 import "../../components/EventDetail/Eventpage/eventpagestyle.css";

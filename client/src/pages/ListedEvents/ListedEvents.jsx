@@ -10,7 +10,7 @@ export class ListedEvents extends Component {
   }
 
   componentDidMount() {
-//     // GRAB API
+    // GRAB API
     console.log("TEST2")
     axios.get("/api/events")
     .then(resp => {
@@ -35,7 +35,7 @@ export class ListedEvents extends Component {
                                 <EventsListItems
                                 key={item.id}
                                 title={item.name}
-                                href={`/eventdetail/${this.item.id}`}
+                                href={item.id}
                                 description={item.description}
                                 />
                             );
