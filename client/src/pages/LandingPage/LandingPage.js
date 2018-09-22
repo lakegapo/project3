@@ -10,14 +10,12 @@ class LandingPage extends Component {
         const responseGoogle = response => {
             console.log(response);
         }
+        //sends googledata to DB and recieves DB user object back as response, then sets DB id in session storage
         const createUser = response => {
-            // sessionStorage.setItem("googleId", response.profileObj.googleId);
-            // console.log(response.profileObj);
-            // API.createUser(response.profileObj);
             axios.post("/api/user", response.profileObj)
                 .then(resp => {
-                    sessionStorage.setItem("userId", resp.data.id)
-                    console.log(resp.data.id);
+                    sessionStorage.setItem("userId", resp.data.id);
+                    window.location.assign("/listedevents");
                 })
                 .catch(e => {
                     console.error(e)

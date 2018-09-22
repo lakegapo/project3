@@ -47,6 +47,7 @@ class CreateEvent extends Component {
     // Console logs state and submits form. Redirects to Event Detail Page pending
     handleFormSubmit = (event) => {
         event.preventDefault();
+        console.log(sessionStorage.getItem("userId"));
         console.log("Event Creation Details");
         console.log("this.state.name: ", this.state.name);
         console.log("this.state.address1: ", this.state.address1);
@@ -54,6 +55,7 @@ class CreateEvent extends Component {
         console.log("this.state.citystate: ", this.state.citystate);
         console.log("this.state.zip: ", this.state.zip);
         console.log("this.state.description: ", this.state.description);
+        const loggedUser = sessionStorage.getItem("userId");
         axios.post("/api/events", {
             name: this.state.name,
             address1: this.state.address1,
@@ -61,7 +63,7 @@ class CreateEvent extends Component {
             citystate: this.state.citystate,
             zip: this.state.zip,
             description: this.state.description,
-            user: sessionStorage.getItem("googleId")
+            UserId: loggedUser
         })
     }
 

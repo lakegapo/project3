@@ -24,6 +24,7 @@ module.exports = {
                 res.json(err).status(400);
             });
     },
+//createOne checks if the googleid has hit db before, if not creates row and either way sends back user object as response so front end can store db id in session storage
     createOne: (req, res) => {
         const user = {
             email: req.body.email,
@@ -39,9 +40,7 @@ module.exports = {
             defaults: user
         })
             .then(resp => {
-                // sessionStorage.setItem("userId", resp[0].dataValues.id);
                 res.send(resp[0].dataValues);
-                console.log(resp[0].dataValues.id);
             })
             .catch(err => {
                 res.json(err).status(400);
