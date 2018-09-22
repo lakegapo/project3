@@ -35,7 +35,7 @@ export class ListedEvents extends Component {
                                 <EventsListItems
                                 key={item.id}
                                 title={item.name}
-                                href={`/eventdetail/${this.item.id}`}
+                                href={item.id}
                                 description={item.description}
                                 />
                             );
