@@ -73,6 +73,8 @@ class CreateEvent extends Component {
         const loggedUser = sessionStorage.getItem("userId");
         axios.post("/api/events", {
             name: this.state.name,
+            category: this.state.category,
+            date: this.state.date,
             address1: this.state.address1,
             address2: this.state.address2,
             citystate: this.state.citystate,

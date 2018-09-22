@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import EventDescription from '../../components/EventDetail/EventDescription';
+import EventDescription from '../../components/EventDetail/EventDescription/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
 import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 
  class EventDetail extends Component {
-     
+
     componentDidMount() {
+        console.log("TESTSTE");
         const id = this.props.match.params.id;
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
