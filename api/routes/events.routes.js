@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const ctrl = require("../controllers/event.ctrl");
 
-router.get("/:location/:category", function (req, res) {
-  res.json({title: "Sample Title", description: "Sample Description", date: "Sample Date"})
-});
+router.post("/", ctrl.createOne);
+
+module.exports = router;

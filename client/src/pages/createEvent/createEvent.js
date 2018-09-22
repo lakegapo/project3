@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import './createEvent.css';
 import logo from './logo.png';
 
@@ -53,6 +54,15 @@ class CreateEvent extends Component {
         console.log("this.state.citystate: ", this.state.citystate);
         console.log("this.state.zip: ", this.state.zip);
         console.log("this.state.description: ", this.state.description);
+        axios.post("/api/events", {
+            name: this.state.name,
+            address1: this.state.address1,
+            address2: this.state.address2,
+            citystate: this.state.citystate,
+            zip: this.state.zip,
+            description: this.state.description,
+            user: sessionStorage.getItem("googleId")
+        })
     }
 
     render() {

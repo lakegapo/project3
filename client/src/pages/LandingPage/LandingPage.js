@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './Untitled.png';
+import axios from "axios";
 import './LandingPage.css';
 import GoogleLogin from 'react-google-login';
 import API from '../../utils/API';
@@ -10,10 +11,18 @@ class LandingPage extends Component {
             console.log(response);
         }
         const createUser = response => {
-            sessionStorage.setItem("googleId", response.profileObj.googleId);
-            console.log(response.profileObj);
-            API.createUser(response.profileObj);
-        }
+            // sessionStorage.setItem("googleId", response.profileObj.googleId);
+            // console.log(response.profileObj);
+            // API.createUser(response.profileObj);
+            axios.post("/api/user", response.profileObj)
+                .then(resp => {
+                    sessionStorage.setItem("userId", resp.data.id)
+                    console.log(resp.data.id);
+                })
+                .catch(e => {
+                    console.error(e)
+                })
+        };
         return (
             <div id="landingPage" className="container">
 
