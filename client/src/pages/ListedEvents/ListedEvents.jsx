@@ -19,17 +19,6 @@ export class ListedEvents extends Component {
             items: resp.data
         })
     });
-
-    //   let array = this.state.items.push(result);
-
-    //   this.setState({
-    //       isLoaded: true, was this a boolean to check if data was in the state?
-    //       items: array
-    //   });
-    // }, (error) => {
-    //     console.log(error);
-    //     }
-    // )  
  };
 
     render () {
@@ -46,7 +35,7 @@ export class ListedEvents extends Component {
                                 <EventsListItems
                                 key={item.id}
                                 title={item.name}
-                                // href={item.title}
+                                href={`/eventdetail/${this.item.id}`}
                                 description={item.description}
                                 />
                             );

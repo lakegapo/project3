@@ -6,7 +6,7 @@ export const EventsListItems = props => (
     <Container>
       <Row>
         <Col size="sm-12">
-          <a href={props.title}><h3>Title: {props.title}</h3></a>
+          <a href={props.id}><h3>Title: {props.title}</h3></a>
           <p>Summary: {props.description}</p>
           <div>Starting Date: {props.date}</div>
         </Col>
