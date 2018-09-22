@@ -1,23 +1,10 @@
 import React, { Component } from 'react';
-import axios from "axios";
-export default EventDetail;
-import EventDescription from '../../components/EventDetail/EventDescription';
-import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
-import "../../components/EventDetail/Eventpage/eventpagestyle.css";
+import EventDescription from '../EventDescription/EventDescription';
+import GoogleApiWrapper from '../EventMap/EventMap';
+import "./eventpagestyle.css";
 
- class EventDetail extends Component {
-     
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        axios.get("/api/eventdetail/" + id)
-            .then(resp => {
-                console.log(resp);
-                this.setState({
-                    items: resp.data
-                })
-            });
-    };
 
+ class EventPage extends Component {
   render() {
     return (
       
@@ -57,4 +44,4 @@ import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 
 
 
-export default EventDetail;
+export default EventPage;

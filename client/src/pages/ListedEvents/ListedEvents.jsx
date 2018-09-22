@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { EventsList, EventsListItems } from "../../components/Events";
+import axios from "axios";
+import { Container, Row, Col } from '../../components/Grid'
 
 export class ListedEvents extends Component {
 
@@ -7,26 +9,17 @@ export class ListedEvents extends Component {
     items: []
   }
 
-  componentDidMount = () => {
-    // GRAB API
-
-    let url = `http://localhost:3000/api/routes/index.routes/events`;
-
-    fetch(url)
-    .then(res => res.json())
-    .then((result) => {
-
-      let array = this.state.items.push(result);
-
-      this.setState({
-          isLoaded: true,
-          items: array
-      });
-    }, (error) => {
-        console.log(error);
-        }
-    )  
- }
+  componentDidMount() {
+//     // GRAB API
+    console.log("TEST2")
+    axios.get("/api/events")
+    .then(resp => {
+        console.log(resp.data);
+        this.setState({
+            items: resp.data
+        })
+    });
+ };
 
     render () {
         return (
@@ -41,8 +34,8 @@ export class ListedEvents extends Component {
                             return (
                                 <EventsListItems
                                 key={item.id}
-                                title={item.title}
-                                href={item.title}
+                                title={item.name}
+                                href={`/eventdetail/${this.item.id}`}
                                 description={item.description}
                                 />
                             );
