@@ -6,8 +6,9 @@ import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 import JoinEventButton from '../../components/EventButton/JoinEventButton'
 
  class EventDetail extends Component {
-     
+
     componentDidMount() {
+        console.log("TESTSTE");
         const id = this.props.match.params.id;
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
