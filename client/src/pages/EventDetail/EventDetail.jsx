@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import EventDescription from '../../components/EventDetail/EventDescription';
+import EventDescription from '../../components/EventDetail/EventDescription/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
 import "../../components/EventDetail/Eventpage/eventpagestyle.css";
+import JoinEventButton from '../../components/EventButton/JoinEventButton'
 
 
  class EventDetail extends Component {
@@ -17,9 +18,7 @@ import "../../components/EventDetail/Eventpage/eventpagestyle.css";
           </div>
 
           <div className="row justify-content-center">
-            <div className="col-sm-auto" align='center'>
-              <button type='button' className='joinbutton'>Join</button>
-            </div>
+            <JoinEventButton/>
           </div>
 
 
