@@ -16,7 +16,7 @@ class App extends Component {
               <Switch>
                 <Route exact path = "/" exact component = {LandingPage} />
                 <Route exact path = "/listedevents" component = {ListedEvents} />
-                <Route exact path = "/eventdetail" component = {EventDetail} />
+                <Route path = "/eventdetail/:id" component = {EventDetail} />
                 <Route exact path = "/home" component = {Categories} />
                 <Route exact path = "/create" component = {CreateEvent} />
               </Switch>

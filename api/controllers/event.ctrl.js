@@ -30,5 +30,19 @@ module.exports = {
     .catch(err => {
       res.json(err).status(400);
     });
+  },
+
+  getOne: (req, res) => {
+    const id = req.params.id;
+    models.Event.findOne({
+      where: {id: id}
+    })
+    .then(resp => {
+      res.json(resp);
+    })
+    .catch(err => {
+      res.json(err).status(400);
+    });
   }
+
 };
