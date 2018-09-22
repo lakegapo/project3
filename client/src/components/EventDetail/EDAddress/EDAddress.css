@@ -1,0 +1,13 @@
+#eventAddress {
+    padding-left: 5px;
+    font-style: italic;
+    font-size: 15px;
+}
+
+#editAddress {
+    width: 90%;
+}
+
+form {
+    padding-left: 5px;
+}
