@@ -7,7 +7,7 @@ export const EventsListItems = props => (
       <Row>
         <Col size="sm-12">
           <a href={props.title}><h3>Title: {props.title}</h3></a>
-          <p>Summary: {props.summary}</p>
+          <p>Summary: {props.description}</p>
           <div>Starting Date: {props.date}</div>
         </Col>
       </Row>

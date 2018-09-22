@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { EventsList, EventsListItems } from "../../components/Events";
+import axios from "axios";
 import { Container, Row, Col } from '../../components/Grid'
 
 export class ListedEvents extends Component {
@@ -8,26 +9,28 @@ export class ListedEvents extends Component {
     items: []
   }
 
-  componentDidMount = () => {
-    // GRAB API
+  componentDidMount() {
+//     // GRAB API
+    console.log("TEST2")
+    axios.get("/api/events")
+    .then(resp => {
+        console.log(resp.data);
+        this.setState({
+            items: resp.data
+        })
+    });
 
-    let url = `http://localhost:3000/api/routes/index.routes/events`;
+    //   let array = this.state.items.push(result);
 
-    fetch(url)
-    .then(res => res.json())
-    .then((result) => {
-
-      let array = this.state.items.push(result);
-
-      this.setState({
-          isLoaded: true,
-          items: array
-      });
-    }, (error) => {
-        console.log(error);
-        }
-    )  
- }
+    //   this.setState({
+    //       isLoaded: true, was this a boolean to check if data was in the state?
+    //       items: array
+    //   });
+    // }, (error) => {
+    //     console.log(error);
+    //     }
+    // )  
+ };
 
     render () {
         return (
@@ -42,8 +45,8 @@ export class ListedEvents extends Component {
                             return (
                                 <EventsListItems
                                 key={item.id}
-                                title={item.title}
-                                href={item.title}
+                                title={item.name}
+                                // href={item.title}
                                 description={item.description}
                                 />
                             );

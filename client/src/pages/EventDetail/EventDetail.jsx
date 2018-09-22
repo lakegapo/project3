@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
+import axios from "axios";
+export default EventDetail;
 import EventDescription from '../../components/EventDetail/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
 import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 
-
  class EventDetail extends Component {
+     
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        axios.get("/api/eventdetail/" + id)
+            .then(resp => {
+                console.log(resp);
+                this.setState({
+                    items: resp.data
+                })
+            });
+    };
+
   render() {
     return (
       

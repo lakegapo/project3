@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './Untitled.png';
+import axios from "axios";
 import './LandingPage.css';
 import GoogleLogin from 'react-google-login';
 import API from '../../utils/API';
@@ -9,11 +10,17 @@ class LandingPage extends Component {
         const responseGoogle = response => {
             console.log(response);
         }
+        //sends googledata to DB and recieves DB user object back as response, then sets DB id in session storage
         const createUser = response => {
-            sessionStorage.setItem("googleId", response.profileObj.googleId);
-            console.log(response.profileObj);
-            API.createUser(response.profileObj);
-        }
+            axios.post("/api/user", response.profileObj)
+                .then(resp => {
+                    sessionStorage.setItem("userId", resp.data.id);
+                    window.location.assign("/listedevents");
+                })
+                .catch(e => {
+                    console.error(e)
+                })
+        };
         return (
             <div id="landingPage" className="container">
 
