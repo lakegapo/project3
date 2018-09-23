@@ -31,3 +31,7 @@
 .btnCategories:active {
     color: lightblue;
 }
+
+.form-row {
+    margin-bottom: 50px;
+}
