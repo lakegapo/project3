@@ -7,6 +7,12 @@ import JoinEventButton from '../../components/EventButton/JoinEventButton'
 
  class EventDetail extends Component {
 
+    state = {
+        name: "",
+        description: "",
+    }
+
+
     componentDidMount() {
         console.log("TESTSTE");
         const id = this.props.match.params.id;
@@ -14,7 +20,8 @@ import JoinEventButton from '../../components/EventButton/JoinEventButton'
             .then(resp => {
                 console.log(resp);
                 this.setState({
-                    items: resp.data
+                    name: resp.data.name,
+                    description: resp.data.description
                 })
             });
     };
@@ -26,7 +33,7 @@ import JoinEventButton from '../../components/EventButton/JoinEventButton'
 
           <div className="row justify-content-center">
             <div className="col-sm-auto" align='center'>
-              <h1 className='eventName'>Event Name</h1>
+              <h1 className='eventName'>{this.state.name}</h1>
             </div>
           </div>
 
@@ -45,7 +52,9 @@ import JoinEventButton from '../../components/EventButton/JoinEventButton'
 
           <div className="row justify-content-center gapDiv">
             <div className="col-sm-auto">
-              <EventDescription/>
+              <EventDescription 
+                body={this.state.description}
+              />
             </div>
           </div>
 

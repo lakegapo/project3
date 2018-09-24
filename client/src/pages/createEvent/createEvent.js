@@ -2,17 +2,28 @@ import React, { Component } from 'react';
 import axios from "axios";
 import './createEvent.css';
 import logo from './logo.png';
+import Calendar from 'react-calendar';
+import TimePicker from 'react-time-picker';
+
+
 
 class CreateEvent extends Component {
 
+
+
     state = {
         name: "",
+        category: "",
+        date: new Date(),
+        time: "00:00",
         address1: "",
         address2: "",
         citystate: "",
         zip: "",
         description: ""
     }
+
+
 
     // Grabbing 
     handleNameChange = (event) => {
@@ -44,12 +55,30 @@ class CreateEvent extends Component {
         this.setState({ description: event.target.value });
     }
 
+    // Grabbing date
+    handleDateChange = date => {
+        this.setState({ date });
+    }
+
+    // Grabbing category
+    handleCategoryChange = (event) => {
+        this.setState({ category: event.target.value });
+    }
+
+    // Grabbing time
+    handleTimeChange = (time) => {
+        this.setState({ time });
+    }
+
     // Console logs state and submits form. Redirects to Event Detail Page pending
     handleFormSubmit = (event) => {
         event.preventDefault();
         console.log(sessionStorage.getItem("userId"));
         console.log("Event Creation Details");
         console.log("this.state.name: ", this.state.name);
+        console.log("this.state.time: ", this.state.time);
+        console.log("this.state.category: ", this.state.category);
+        console.log("this.state.date: ", this.state.date);
         console.log("this.state.address1: ", this.state.address1);
         console.log("this.state.address2: ", this.state.address2);
         console.log("this.state.citystate: ", this.state.citystate);
@@ -58,6 +87,9 @@ class CreateEvent extends Component {
         const loggedUser = sessionStorage.getItem("userId");
         axios.post("/api/events", {
             name: this.state.name,
+            category: this.state.category,
+            date: this.state.date,
+            time: this.state.time,
             address1: this.state.address1,
             address2: this.state.address2,
             citystate: this.state.citystate,
@@ -65,7 +97,13 @@ class CreateEvent extends Component {
             description: this.state.description,
             UserId: loggedUser
         })
-    }
+        .then(resp => {
+            window.location.assign("/eventdetail/" + resp.data.id);
+        })
+        .catch(err => {
+            console.error(e)
+        });
+    };
 
     render() {
         return (
@@ -89,6 +127,41 @@ class CreateEvent extends Component {
                             <div className="form-group">
                                 <label htmlFor="eventName">Event Name</label>
                                 <input type="eventName" className="form-control" id="eventName" onChange={this.handleNameChange} aria-describedby="eventName" placeholder="Enter event name" />
+                            </div>
+                            <div className="form-row form-group">
+                                <div className="col">
+                                    <label htmlFor="category">Category</label>
+                                    <select id="inputCategory" className="form-control" onChange={this.handleCategoryChange}>
+                                        <option defaultValue disabled>Category</option>
+                                        <option>Gaming</option>
+                                        <option>Basketball</option>
+                                        <option>Bicycle</option>
+                                        <option>Canyon Runs</option>
+                                        <option>Pokemon Go</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label id="dateHeader" htmlFor="eventDate">Date of Event</label>
+                                <div className="row justify-content-center">
+                                    <div className="col-auto">
+                                        <Calendar
+                                            onChange={this.handleDateChange}
+                                            value={this.state.date}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                            <label htmlFor="eventTime">Time of Event</label>
+                            <div className="row justify-content-center">
+                                <div className="col-auto">
+                                <TimePicker
+                                    onChange={this.handleTimeChange}
+                                    value={this.state.time}
+                                />
+                                </div>
+                            </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="eventAddress1">Address</label>
