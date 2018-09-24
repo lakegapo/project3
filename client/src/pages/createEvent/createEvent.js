@@ -3,19 +3,27 @@ import axios from "axios";
 import './createEvent.css';
 import logo from './logo.png';
 import Calendar from 'react-calendar';
+import TimePicker from 'react-time-picker';
+
+
 
 class CreateEvent extends Component {
+
+
 
     state = {
         name: "",
         category: "",
         date: new Date(),
+        time: "00:00",
         address1: "",
         address2: "",
         citystate: "",
         zip: "",
         description: ""
     }
+
+
 
     // Grabbing 
     handleNameChange = (event) => {
@@ -57,12 +65,18 @@ class CreateEvent extends Component {
         this.setState({ category: event.target.value });
     }
 
+    // Grabbing time
+    handleTimeChange = (time) => {
+        this.setState({ time });
+    }
+
     // Console logs state and submits form. Redirects to Event Detail Page pending
     handleFormSubmit = (event) => {
         event.preventDefault();
         console.log(sessionStorage.getItem("userId"));
         console.log("Event Creation Details");
         console.log("this.state.name: ", this.state.name);
+        console.log("this.state.time: ", this.state.time);
         console.log("this.state.category: ", this.state.category);
         console.log("this.state.date: ", this.state.date);
         console.log("this.state.address1: ", this.state.address1);
@@ -75,6 +89,7 @@ class CreateEvent extends Component {
             name: this.state.name,
             category: this.state.category,
             date: this.state.date,
+            time: this.state.time,
             address1: this.state.address1,
             address2: this.state.address2,
             citystate: this.state.citystate,
@@ -136,6 +151,17 @@ class CreateEvent extends Component {
                                         />
                                     </div>
                                 </div>
+                            </div>
+                            <div className="form-group">
+                            <label htmlFor="eventTime">Time of Event</label>
+                            <div className="row justify-content-center">
+                                <div className="col-auto">
+                                <TimePicker
+                                    onChange={this.handleTimeChange}
+                                    value={this.state.time}
+                                />
+                                </div>
+                            </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="eventAddress1">Address</label>
