@@ -76,7 +76,7 @@ class CreateEvent extends Component {
 
     render() {
         const categories = ["Gaming", "Basketball", "Bicycle", "Canyon Runs", "Pokemon Go"];
-        const locations = ["Irvine, CA", "Los Angeles, CA", "Orange, CA", "San Francisco, CA", "Las Vegas, NV", "Phoenix, AZ", "Portland, OR", "Seattle, WA", "San Diego, CA", "Blood Gulch, H2"];
+        const locations = ["Irvine", "Los Angeles", "Orange", "San Francisco", "Las Vegas", "Phoenix", "Portland", "Seattle", "San Diego", "Blood Gulch"];
 
         return (
             <div id="createForm" className="container">
