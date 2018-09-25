@@ -5,7 +5,7 @@ import EventDetail from './pages/EventDetail/EventDetail';
 import CreateEvent from './pages/createEvent/createEvent';
 import Categories from "./components/Categories/Categories";
 import { ListedEvents } from "./pages/ListedEvents/ListedEvents";
-import NavbarComponent from "./components/Navbar/Navbar";
+
 
 class App extends Component {
 
@@ -14,7 +14,7 @@ class App extends Component {
       <div>
           <Router>
             <div>
-              <NavbarComponent/>
+              
               <Switch>
                 <Route exact path = "/" component = {LandingPage} />
                 <Route exact path = "/listedevents" component = {ListedEvents} />
