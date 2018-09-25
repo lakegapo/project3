@@ -1,11 +1,13 @@
 .btnJoinEvent {
-    background-color: lightcoral;
+    background-color: #f76c6c;
     border-radius: 5px;
     margin-top: 10px;
     font-size: 70%;
     color: white;
     cursor: pointer;
     padding: 2%;
+    font-size: 1.5em;
+    margin-bottom: 25px;
 }
 .btnJoinEvent a {
     text-decoration: none;

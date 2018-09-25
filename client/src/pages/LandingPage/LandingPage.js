@@ -5,6 +5,7 @@ import './LandingPage.css';
 import GoogleLogin from 'react-google-login';
 import API from '../../utils/API';
 
+
 class LandingPage extends Component {
     render() {
         const responseGoogle = response => {
@@ -24,7 +25,7 @@ class LandingPage extends Component {
         return (
             <div id="landingPage" className="container">
 
-
+            
                 <div className="row justify-content-center">
                     <div className="col-sm-auto">
                         <img id="logo" src={logo} alt="Who's Down" />
