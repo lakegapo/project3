@@ -6,6 +6,7 @@ import CreateEvent from './pages/createEvent/createEvent';
 import Home from "./pages/Home/Home";
 import { ListedEvents } from "./pages/ListedEvents/ListedEvents";
 
+
 class App extends Component {
 
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
       <div>
           <Router>
             <div>
+              
               <Switch>
                 <Route exact path = "/" component = {LandingPage} />
                 <Route exact path = "/listedevents" component = {ListedEvents} />
