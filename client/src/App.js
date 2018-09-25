@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from './pages/LandingPage/LandingPage';
 import EventDetail from './pages/EventDetail/EventDetail';
 import CreateEvent from './pages/createEvent/createEvent';
-import Categories from "./components/Categories/Categories";
+import Home from "./pages/Home/Home";
 import { ListedEvents } from "./pages/ListedEvents/ListedEvents";
 
 
@@ -19,7 +19,7 @@ class App extends Component {
                 <Route exact path = "/" component = {LandingPage} />
                 <Route exact path = "/listedevents" component = {ListedEvents} />
                 <Route path = "/eventdetail/:id" component = {EventDetail} />
-                <Route exact path = "/home" component = {Categories} />
+                <Route exact path = "/home" component = {Home} />
                 <Route exact path = "/create" component = {CreateEvent} />
               </Switch>
             </div>
