@@ -12,7 +12,7 @@ class Categories extends Component {
     // Grabbing citystate
     handleCityStateChange = (event) => {
         var city = event.target.value;
-        this.setState({ citystate: city });
+        this.setState({ city: city });
     }
 
     render() {
