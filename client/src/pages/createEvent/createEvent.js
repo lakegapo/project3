@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import axios from "axios";
 import './createEvent.css';
 import logo from './logo.png';
+import { Navbar } from "../../components/Navbar/Navbar";
 import Calendar from 'react-calendar';
 import TimePicker from 'react-time-picker';
 
-
-
 class CreateEvent extends Component {
-
-
 
     state = {
         name: "",
@@ -79,17 +76,20 @@ class CreateEvent extends Component {
         const locations = ["Irvine", "Los Angeles", "Orange", "San Francisco", "Las Vegas", "Phoenix", "Portland", "Seattle", "San Diego", "Blood Gulch"];
 
         return (
-            <div id="createForm" className="container">
+            <div>
+                <Navbar />
 
+                <div id="createForm" className="container">
 
-                <div className="row justify-content-center">
-                    <div className="col-sm-auto">
-                        <img id="formLogo" src={logo} alt="Who's Down" />
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto">
+                            <img id="formLogo" src={logo} alt="Who's Down" />
+                        </div>
                     </div>
-                </div>
-                <div className="row justify-content-center">
-                    <div className="col-sm-auto">
-                        <h2 id="createHeader">Create an Event</h2>
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto">
+                            <h2 id="createHeader">Create an Event</h2>
+                        </div>
                     </div>
                 </div>
                 <div className="row justify-content-center">
@@ -160,8 +160,8 @@ class CreateEvent extends Component {
                             <button type="submit" className="btn submitButton" onClick={this.handleFormSubmit}>Create Event</button>
                         </form>
 
+                        </div>
                     </div>
-                </div>
 
             </div>
         );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./Categories.css";
-import { Row, Col } from "../Grid";
+import {Row, Col} from "../Grid";
+import { Navbar } from "../Navbar/Navbar";
 
 class Categories extends Component {
 
@@ -20,6 +21,7 @@ class Categories extends Component {
         const locations = ["Irvine", "Los Angeles", "Orange", "San Francisco", "Las Vegas", "Phoenix", "Portland", "Seattle", "San Diego", "Blood Gulch"];
         return (
             <div className="categories">
+            <Navbar />
                 <div className="appHeader">Let's Get Started</div>
 
                 <div className="row justify-content-center">

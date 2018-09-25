@@ -17,6 +17,9 @@
 .categoryTitle {
     color: #F8E9A1;
 }
+.categoryTitle {
+    margin-top: 100px;
+}
 .appHeader {
     font-size: 20px;
     font-weight: bold;
