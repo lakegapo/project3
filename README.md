@@ -7,6 +7,8 @@
 * Jonathan Mai
 * Fletcher Bunales
 
+![SHHH](https://media.giphy.com/media/y8mThMjGBrQpG/giphy.gif)
+
 ## Who's Down Project
 
 ### Project Description:
