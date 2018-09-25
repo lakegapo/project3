@@ -31,7 +31,7 @@ class Categories extends Component {
                                 <select id="inputCityState" className="form-control" onChange={this.handleCityStateChange}>
                                     <option defaultValue>Choose...</option>
                                     {locations.map(city => {
-                                        return <option>{city}</option>
+                                        return <option key={city}>{city}</option>
                                     })}
                                 </select>
                             </div>
@@ -44,9 +44,9 @@ class Categories extends Component {
                     <div className="categoryTitle">Pick a Category:</div>
                         {categories.map(name => {
                             return(
-                                <Row>
+                                <Row key={name}>
                                     <Col size="md-12">
-                                        <a href={`/${this.state.city.toLowerCase()}/${name.toLowerCase()}`} key={name} className="btn btn-lg btnCategories">{name}</a>
+                                        <a href={`/${this.state.city.toLowerCase()}/${name.toLowerCase()}`} className="btn btn-lg btnCategories">{name}</a>
                                     </Col>
                                 </Row>
                             )
