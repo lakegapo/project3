@@ -6,16 +6,19 @@ class Categories extends Component {
 
     
     state = {
-        citystate: "",
+        city: "",
     }
     
     // Grabbing citystate
     handleCityStateChange = (event) => {
-        this.setState({ citystate: event.target.value });
-        console.log(this.state.citystate);
+        var city = event.target.value.split(',')[0].replace(/ /g, '');
+        this.setState({ city: city });
+        console.log(this.state.city);
     }
 
     render() {
+        const categories = ["Gaming", "Basketball", "Bicycle", "Canyon Runs", "Pokemon Go"];
+        const locations = ["Irvine, CA", "Los Angeles, CA", "Orange, CA", "San Francisco, CA", "Las Vegas, NV", "Phoenix, AZ", "Portland, OR", "Seattle, WA", "San Diego, CA", "Blood Gulch, H2"];
         return (
             <div className="categories">
                 <div className="appHeader">Who's Down?</div>
@@ -27,49 +30,28 @@ class Categories extends Component {
                                 <label htmlFor="location">Select Location:</label>
                                 <select id="inputCityState" className="form-control" onChange={this.handleCityStateChange}>
                                     <option defaultValue>Choose...</option>
-                                    <option>Irvine, CA</option>
-                                    <option>Los Angeles, CA</option>
-                                    <option>Orange, CA</option>
-                                    <option>San Francisco, CA</option>
-                                    <option>Las Vegas, NV</option>
-                                    <option>Phoenix, AZ</option>
-                                    <option>Portland, OR</option>
-                                    <option>Seattle, WA</option>
-                                    <option>San Diego, CA</option>
-                                    <option>Blood Gulch, H2</option>
+                                    {locations.map(city => {
+                                        return <option>{city}</option>
+                                    })}
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div className="categoryTitle">Pick a Category:</div>
-
-                <Row>
-                    <Col size="md-12">
-                        <button className="btn btn-lg btnCategories">Gaming</button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-12">
-                        <button className="btn btn-lg btnCategories">Basketball</button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-12">
-                        <button className="btn btn-lg btnCategories">Bicycle</button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-12">
-                        <button className="btn btn-lg btnCategories">Canyon Runs</button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-12">
-                        <button className="btn btn-lg btnCategories">Pokemon Go</button>
-                    </Col>
-                </Row>
+                
+                {(this.state.city !== "") ?
+                <div>
+                    <div className="categoryTitle">Pick a Category:</div>
+                        {categories.map(name => {
+                            return(
+                                <Row>
+                                    <Col size="md-12">
+                                        <a href={`/${this.state.city.toLowerCase()}/${name.toLowerCase()}`} key={name} className="btn btn-lg btnCategories">{name}</a>
+                                    </Col>
+                                </Row>
+                            )
+                        })}
+                </div> : `Select a location first`}
             </div>
         )
     }
