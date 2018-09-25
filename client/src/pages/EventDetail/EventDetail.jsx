@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import EventDescription from '../../components/EventDetail/EventDescription';
+import EventDescription from '../../components/EventDetail/EventDescription/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
 import "../../components/EventDetail/Eventpage/eventpagestyle.css";
+import { Navbar } from "../../components/Navbar/Navbar";
+import "./EventDetail.css";
 
  class EventDetail extends Component {
-     
+
     componentDidMount() {
+        console.log("TESTSTE");
         const id = this.props.match.params.id;
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
@@ -19,7 +22,8 @@ import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 
   render() {
     return (
-      
+      <div className="eventdetail">       
+        <Navbar />
         <div className="container-fluid">
 
           <div className="row justify-content-center">
@@ -49,7 +53,8 @@ import "../../components/EventDetail/Eventpage/eventpagestyle.css";
             </div>
           </div>
 
-        </div>        
+        </div>  
+      </div>      
     );
   }
 }
