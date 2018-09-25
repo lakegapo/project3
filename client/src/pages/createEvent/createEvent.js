@@ -101,7 +101,7 @@ class CreateEvent extends Component {
             window.location.assign("/eventdetail/" + resp.data.id);
         })
         .catch(err => {
-            console.error(e)
+            console.error(err);
         });
     };
 

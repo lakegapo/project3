@@ -4,11 +4,15 @@ import EventDescription from '../../components/EventDetail/EventDescription/Even
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
 import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 import JoinEventButton from '../../components/EventButton/JoinEventButton'
+import './EventDetail.css'
+import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
+
 
  class EventDetail extends Component {
 
     state = {
         name: "",
+        address: "",
         description: "",
     }
 
@@ -21,44 +25,82 @@ import JoinEventButton from '../../components/EventButton/JoinEventButton'
                 console.log(resp);
                 this.setState({
                     name: resp.data.name,
+                    address: resp.data.address,
                     description: resp.data.description
                 })
             });
     };
 
   render() {
+    
     return (
-      
-        <div className="container-fluid">
+      <div id='EventPageStyle' className="container-fluid">
 
           <div className="row justify-content-center">
             <div className="col-sm-auto" align='center'>
-              <h1 className='eventName'>{this.state.name}</h1>
+              <h1 className='eventName'>Event Name {this.state.name}</h1>
             </div>
           </div>
 
           <div className="row justify-content-center">
+            <div className="col-sm-auto" align='center'>
             <JoinEventButton/>
+            </div>
           </div>
 
 
           <div className="row justify-content-center">
             <div className='col-sm-auto'>
-              <div align="center">
-                <GoogleApiWrapper position="relative" className='map'/>
+              <div>
+                <GoogleApiWrapper/>
               </div>
             </div>
           </div>
 
           <div className="row justify-content-center gapDiv">
             <div className="col-sm-auto">
-              <EventDescription 
-                body={this.state.description}
-              />
+              <EventAddress body={this.state.address}/>
             </div>
           </div>
 
-        </div>        
+          <div className="row justify-content-center">
+            <div className="col-sm-auto">
+              <EventDescription body={this.state.description}/>
+            </div>
+          </div>
+
+        </div>   
+      
+        // <div className="container-fluid">
+
+        //   <div className="row justify-content-center">
+        //     <div className="col-sm-auto" align='center'>
+        //       <h1 className='eventName'>{this.state.name}</h1>
+        //     </div>
+        //   </div>
+
+        //   <div className="row justify-content-center">
+        //     <JoinEventButton/>
+        //   </div>
+
+
+        //   <div className="row justify-content-center">
+        //     <div className='col-sm-auto'>
+        //       <div align="center">
+        //         <GoogleApiWrapper position="relative" className='map'/>
+        //       </div>
+        //     </div>
+        //   </div>
+
+        //   <div className="row justify-content-center gapDiv">
+        //     <div className="col-sm-auto">
+        //       <EventDescription 
+        //         body={this.state.description}
+        //       />
+        //     </div>
+        //   </div>
+
+        // </div>        
     );
   }
 }
