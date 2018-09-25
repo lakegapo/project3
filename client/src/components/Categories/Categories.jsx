@@ -18,13 +18,13 @@ class Categories extends Component {
     render() {
         return (
             <div className="categories">
-                <div className="appHeader">Who's Down?</div>
+                <div className="appHeader">Let's Get Started</div>
 
                 <div className="row justify-content-center">
                     <div className="col-auto">
                         <div className="form-row form-group justify-content-center">
                             <div className="col-sm-6">
-                                <label htmlFor="location">Select Location:</label>
+                                <label className="locationSelect" htmlFor="location">Select Location:</label>
                                 <select id="inputCityState" className="form-control" onChange={this.handleCityStateChange}>
                                     <option defaultValue>Choose...</option>
                                     <option>Irvine, CA</option>
