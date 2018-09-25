@@ -43,6 +43,17 @@ module.exports = {
     .catch(err => {
       res.json(err).status(400);
     });
+  },
+
+  categoryGetAll: (req, res) => {
+    const citystate = req.params.citystate;
+    const category = req.params.category;
+    models.Event.findAll({
+      where: {citystate, category}
+    })
+    .then(resp => {
+      res.json(resp)
+    })
   }
 
 };
