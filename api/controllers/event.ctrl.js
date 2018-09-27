@@ -10,8 +10,8 @@ module.exports = {
       citystate: req.body.citystate,
       zip: req.body.zip,
       description: req.body.description,
-      UserId : req.body.UserId
-      // category: req.body.category
+      UserId : req.body.UserId,
+      category: req.body.category
     };
     models.Event.create(event)
       .then(resp => {
