@@ -26,6 +26,9 @@ class CreateEvent extends Component {
     handleChange = (event) => {
         let name = event.target.name;
         let value = event.target.value;
+        if(name === "category" || name === "citystate") {
+            value = value.toLowerCase().trim().replace(/ /g,"-");
+        }
         this.setState({ [name]: value }, () => {console.log(name, value)})
     }
 

@@ -11,7 +11,7 @@ class Categories extends Component {
     
     // Grabbing citystate
     handleCityStateChange = (event) => {
-        var city = event.target.value;
+        var city = event.target.value.toLowerCase().replace(/ /g,"-");
         this.setState({ city: city });
     }
 
@@ -45,7 +45,7 @@ class Categories extends Component {
                             return(
                                 <Row key={name}>
                                     <Col size="md-12">
-                                        <a href={`/${this.state.city.toLowerCase()}/${name.toLowerCase()}`} className="btn btn-lg btnCategories">{name}</a>
+                                        <a href={`/${this.state.city.toLowerCase()}/${name.toLowerCase().replace(/ /g, '-')}`} className="btn btn-lg btnCategories">{name}</a>
                                     </Col>
                                 </Row>
                             )
