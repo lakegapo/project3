@@ -2,31 +2,36 @@ import React, { Component } from 'react';
 import axios from "axios";
 import EventDescription from '../../components/EventDetail/EventDescription/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
-import "../../components/EventDetail/Eventpage/eventpagestyle.css";
 import JoinEventButton from '../../components/EventButton/JoinEventButton'
-import './EventDetail.css'
 import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
+import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined';
+import './EventDetail.css'
 
 
  class EventDetail extends Component {
 
     state = {
-        name: "",
-        address: "",
-        description: "",
+        name: "Baseball",
+        address: "123 Cool St. Irvine, CA 90123",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim orci tellus, id vestibulum odio dictum a. Nunc et eros magna. Aenean nec pellentesque augue. Etiam sit amet ullamcorper nisi, et euismod velit.",
+        usersjoined: ['Eddie', 'jason', 'marvie', 'jonathan', 'hayden']
     }
 
 
     componentDidMount() {
-        console.log("TESTSTE");
+        console.log("TESTSTE"); 
         const id = this.props.match.params.id;
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
                 console.log(resp);
                 this.setState({
                     name: resp.data.name,
-                    address: resp.data.address,
-                    description: resp.data.description
+                    address: resp.data.address1,
+                    cityState: resp.data.citystate,
+                    zip: resp.data.zip,
+                    description: resp.data.description,
+                    timestampCreated: resp.data.updatedAt
+
                 })
             });
     };
@@ -38,7 +43,7 @@ import EventAddress from '../../components/EventDetail/EventAddress/EventAddress
 
           <div className="row justify-content-center">
             <div className="col-sm-auto" align='center'>
-              <h1 className='eventName'>Event Name {this.state.name}</h1>
+              <h1 className='eventName'>{this.state.name}</h1>
             </div>
           </div>
 
@@ -59,48 +64,24 @@ import EventAddress from '../../components/EventDetail/EventAddress/EventAddress
 
           <div className="row justify-content-center gapDiv">
             <div className="col-sm-auto">
-              <EventAddress body={this.state.address}/>
+              <EventAddress address={this.state.address} citystate={this.state.cityState} zip={this.state.zip}/>
             </div>
           </div>
 
           <div className="row justify-content-center">
             <div className="col-sm-auto">
-              <EventDescription body={this.state.description}/>
+              <EventDescription description={this.state.description} timestampCreated={this.state.timestampCreated}/>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-sm-auto">
+              <PeopleJoined usersjoined={this.state.usersjoined}/>
             </div>
           </div>
 
         </div>   
-      
-        // <div className="container-fluid">
-
-        //   <div className="row justify-content-center">
-        //     <div className="col-sm-auto" align='center'>
-        //       <h1 className='eventName'>{this.state.name}</h1>
-        //     </div>
-        //   </div>
-
-        //   <div className="row justify-content-center">
-        //     <JoinEventButton/>
-        //   </div>
-
-
-        //   <div className="row justify-content-center">
-        //     <div className='col-sm-auto'>
-        //       <div align="center">
-        //         <GoogleApiWrapper position="relative" className='map'/>
-        //       </div>
-        //     </div>
-        //   </div>
-
-        //   <div className="row justify-content-center gapDiv">
-        //     <div className="col-sm-auto">
-        //       <EventDescription 
-        //         body={this.state.description}
-        //       />
-        //     </div>
-        //   </div>
-
-        // </div>        
+          
     );
   }
 }
