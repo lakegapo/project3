@@ -22,6 +22,7 @@ class Categories extends Component {
         return (
             <div className="categories">
             <Navbar />
+            <div className="container-fluid">
                 <div className="appHeader">Let's Get Started</div>
 
                 <div className="row justify-content-center">
@@ -46,7 +47,7 @@ class Categories extends Component {
                         {categories.map(name => {
                             return(
                                 <Row key={name}>
-                                    <Col size="md-12">
+                                    <Col fluid size="md-12">
                                         <a href={`/${this.state.city.toLowerCase()}/${name.toLowerCase()}`} className="btn btn-lg btnCategories">{name}</a>
                                     </Col>
                                 </Row>
@@ -54,6 +55,7 @@ class Categories extends Component {
                         })}
                 </div> : `Select a location first`}
             </div>
+        </div>
         )
     }
 }
