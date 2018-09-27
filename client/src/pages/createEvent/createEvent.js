@@ -13,7 +13,7 @@ class CreateEvent extends Component {
 
     state = {
         name: "",
-        category: "",
+        category: "Gaming",
         date: new Date(),
         time: "00:00",
         address1: "",
