@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import axios from "axios";
 import './createEvent.css';
 import logo from './logo.png';
+import { Navbar } from "../../components/Navbar/Navbar";
 import Calendar from 'react-calendar';
 import TimePicker from 'react-time-picker';
 
-
-
 class CreateEvent extends Component {
-
-
 
     state = {
         name: "",
-        category: "",
+        category: "Gaming",
         date: new Date(),
         time: "00:00",
         address1: "",
@@ -23,46 +20,18 @@ class CreateEvent extends Component {
         description: ""
     }
 
-
-
-    // Grabbing 
-    handleNameChange = (event) => {
-        this.setState({ name: event.target.value });
-    }
-
-    // Grabbing address
-    handleAddress1Change = (event) => {
-        this.setState({ address1: event.target.value });
-    }
-
-    // Grabbing address
-    handleAddress2Change = (event) => {
-        this.setState({ address2: event.target.value });
-    }
-
-    // Grabbing citystate
-    handleCityStateChange = (event) => {
-        this.setState({ citystate: event.target.value });
-    }
-
-    // Grabbing zip
-    handleZipChange = (event) => {
-        this.setState({ zip: event.target.value });
-    }
-
-    // Grabbing description
-    handleDescriptionChange = (event) => {
-        this.setState({ description: event.target.value });
+    handleChange = (event) => {
+        let name = event.target.name;
+        let value = event.target.value;
+        if(name === "category" || name === "citystate") {
+            value = value.toLowerCase().trim().replace(/ /g,"-");
+        }
+        this.setState({ [name]: value }, () => {console.log(name, value)})
     }
 
     // Grabbing date
     handleDateChange = date => {
         this.setState({ date });
-    }
-
-    // Grabbing category
-    handleCategoryChange = (event) => {
-        this.setState({ category: event.target.value });
     }
 
     // Grabbing time
@@ -97,109 +66,115 @@ class CreateEvent extends Component {
             description: this.state.description,
             UserId: loggedUser
         })
+<<<<<<< HEAD
         .then(resp => {
             window.location.assign("/eventdetail/" + resp.data.id);
         })
         .catch(err => {
             console.error(err)
         });
+=======
+            .then(resp => {
+                // window.location.assign("/eventdetail/" + resp.data.id);
+            })
+            .catch(err => {
+                console.error(err)
+            });
+>>>>>>> master
     };
 
     render() {
+        const categories = ["Gaming", "Basketball", "Bicycle", "Canyon Runs", "Pokemon Go"];
+        const locations = ["Irvine", "Los Angeles", "Orange", "San Francisco", "Las Vegas", "Phoenix", "Portland", "Seattle", "San Diego", "Blood Gulch"];
+
         return (
-            <div id="createForm" className="container">
+            <div>
+                <Navbar />
 
+                <div id="createForm" className="container-fluid">
 
-                <div className="row justify-content-center">
-                    <div className="col-sm-auto">
-                        <img id="formLogo" src={logo} alt="Who's Down" />
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto">
+                            <img id="formLogo" src={logo} alt="Who's Down" />
+                        </div>
                     </div>
-                </div>
-                <div className="row justify-content-center">
-                    <div className="col-sm-auto">
-                        <h2 id="createHeader">Create an Event</h2>
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto">
+                            <h2 id="createHeader">Create an Event</h2>
+                        </div>
                     </div>
-                </div>
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
+                    <div className="row justify-content-center">
+                        <div className="col-md-8">
 
-                        <form>
-                            <div className="form-group">
-                                <label htmlFor="eventName">Event Name</label>
-                                <input type="eventName" className="form-control" id="eventName" onChange={this.handleNameChange} aria-describedby="eventName" placeholder="Enter event name" />
-                            </div>
-                            <div className="form-row form-group">
-                                <div className="col">
-                                    <label htmlFor="category">Category</label>
-                                    <select id="inputCategory" className="form-control" onChange={this.handleCategoryChange}>
-                                        <option defaultValue disabled>Category</option>
-                                        <option>Gaming</option>
-                                        <option>Basketball</option>
-                                        <option>Bicycle</option>
-                                        <option>Canyon Runs</option>
-                                        <option>Pokemon Go</option>
-                                    </select>
+                            <form>
+                                <div className="form-group">
+                                    <label htmlFor="eventName">Event Name</label>
+                                    <input type="eventName" className="form-control" id="eventName" name="name" onChange={this.handleChange} aria-describedby="eventName" placeholder="Enter event name" />
                                 </div>
-                            </div>
-                            <div className="form-group">
-                                <label id="dateHeader" htmlFor="eventDate">Date of Event</label>
-                                <div className="row justify-content-center">
-                                    <div className="col-auto">
-                                        <Calendar
-                                            onChange={this.handleDateChange}
-                                            value={this.state.date}
-                                        />
+                                <div className="form-row form-group">
+                                    <div className="col">
+                                        <label htmlFor="category">Category</label>
+                                        <select id="inputCategory" className="form-control" name="category" onChange={this.handleChange}>
+                                            <option defaultValue disabled>Category</option>
+                                            {categories.map(name => {
+                                                return <option key={name}>{name}</option>
+                                            })}
+                                        </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="form-group">
-                            <label htmlFor="eventTime">Time of Event</label>
-                            <div className="row justify-content-center">
-                                <div className="col-auto">
-                                <TimePicker
-                                    onChange={this.handleTimeChange}
-                                    value={this.state.time}
-                                />
+                                <div className="form-group">
+                                    <label id="dateHeader" htmlFor="eventDate">Date of Event</label>
+                                    <div className="row justify-content-center">
+                                        <div className="col-auto">
+                                            <Calendar
+                                                onChange={this.handleDateChange}
+                                                value={this.state.date}
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="eventAddress1">Address</label>
-                                <input type="eventAddress" className="form-control eventAddress" id="eventAddress1" onChange={this.handleAddress1Change} placeholder="Enter event address" />
-                                <input type="eventAddress" className="form-control eventAddress" id="eventAddress2" onChange={this.handleAddress2Change} placeholder="(optional)" />
-                            </div>
-                            <div className="form-row form-group">
-                                <div className="col">
-                                    <label htmlFor="cityState">City, State</label>
-                                    <select id="inputCityState" className="form-control" onChange={this.handleCityStateChange}>
-                                        <option defaultValue>Choose...</option>
-                                        <option>Irvine, CA</option>
-                                        <option>Los Angeles, CA</option>
-                                        <option>Orange, CA</option>
-                                        <option>San Francisco, CA</option>
-                                        <option>Las Vegas, NV</option>
-                                        <option>Phoenix, AZ</option>
-                                        <option>Portland, OR</option>
-                                        <option>Seattle, WA</option>
-                                        <option>San Diego, CA</option>
-                                        <option>Blood Gulch, H2</option>
-                                    </select>
+                                <div className="form-group">
+                                    <label htmlFor="eventTime">Time of Event</label>
+                                    <div className="row justify-content-center">
+                                        <div className="col-auto">
+                                            <TimePicker
+                                                onChange={this.handleTimeChange}
+                                                value={this.state.time}
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col">
-                                    <label htmlFor="zip">ZIP</label>
-                                    <input type="text" className="form-control" placeholder="Enter ZIP" onChange={this.handleZipChange} />
+                                <div className="form-group">
+                                    <label htmlFor="eventAddress1">Address</label>
+                                    <input type="eventAddress" className="form-control eventAddress" id="eventAddress1" name="address1" onChange={this.handleChange} placeholder="Enter event address" />
+                                    <input type="eventAddress" className="form-control eventAddress" id="eventAddress2" name="address2" onChange={this.handleChange} placeholder="(optional)" />
                                 </div>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="eventDescription">Event Description</label>
-                                <textarea className="form-control" id="eventDesciption" onChange={this.handleDescriptionChange} rows="3"></textarea>
-                            </div>
-                            <button type="submit" className="btn submitButton" onClick={this.handleFormSubmit}>Create Event</button>
-                        </form>
+                                <div className="form-row form-group">
+                                    <div className="col">
+                                        <label htmlFor="cityState">City, State</label>
+                                        <select id="inputCityState" className="form-control" name="citystate" onChange={this.handleChange}>
+                                            <option defaultValue>Choose...</option>
+                                            {locations.map(city => {
+                                                return <option key={city}>{city}</option>
+                                            })}
+                                        </select>
+                                    </div>
+                                    <div className="col">
+                                        <label htmlFor="zip">ZIP</label>
+                                        <input type="text" className="form-control" placeholder="Enter ZIP" name="zip" onChange={this.handleChange} />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="eventDescription">Event Description</label>
+                                    <textarea className="form-control" id="eventDesciption" name="description" onChange={this.handleChange} rows="3"></textarea>
+                                </div>
+                                <button type="submit" className="btn submitButton" onClick={this.handleFormSubmit}>Create Event</button>
+                            </form>
 
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         );
     }

@@ -6,7 +6,12 @@ import CommentList from "../../components/EventDetail/Comments/commentList";
 import CommentListItem from "../../components/EventDetail/Comments/commentListItem";
 import EventDescription from '../../components/EventDetail/EventDescription/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
-import "../../components/EventDetail/Eventpage/eventpagestyle.css";
+import { Navbar } from "../../components/Navbar/Navbar";
+import JoinEventButton from '../../components/EventButton/JoinEventButton'
+import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
+import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined';
+import "./EventDetail.css";
+
 
 class EventDetail extends Component {
 

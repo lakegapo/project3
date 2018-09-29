@@ -1,11 +1,13 @@
 #eventDescription {
-    /* width: 45%; */
+    width: 100%;
     border: 1px powderblue solid;
     background: rgb(222, 237, 246);
     text-align: left;
-    margin: 5%;
+    margin-top: 40px;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: 2px solid #f76c6c;
+    padding: 5px 10px 10px 10px;
 }
 
 .eventDescriptionHeader {
@@ -13,9 +15,17 @@
     color: aliceblue;
     border-radius: 10px;
     text-align: center;
-    margin-top: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5px;
+    margin-top: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-size: 20px;
+    border: 2px solid #f76c6c;
 }
+
+.descriptionStyle {
+    text-align: left;
+    font-size: 1em;
+    margin: 5px 0px 5px 0px;
+    line-height: 1.6
+}
+

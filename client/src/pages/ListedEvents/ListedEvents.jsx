@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { EventsList, EventsListItems } from "../../components/Events";
 import axios from "axios";
-import { Container, Row, Col } from '../../components/Grid'
+import { Row, Col } from '../../components/Grid'
+import { Navbar } from "../../components/Navbar/Navbar";
+import "./ListedEvents.css";
 
 export class ListedEvents extends Component {
 
@@ -10,7 +12,7 @@ export class ListedEvents extends Component {
   }
 
   componentDidMount() {
-//     // GRAB API
+    // GRAB API
     console.log("TEST2")
     axios.get("/api/events")
     .then(resp => {
@@ -23,28 +25,29 @@ export class ListedEvents extends Component {
 
     render () {
         return (
-            <Container>
-                <Row>
-                    <Col size="sm-12">
-                        {!this.state.items.length ? (
-                        <h1 className="text-center">No events have been created yet.</h1>
-                        ) : (
-                        <EventsList>
-                            {this.state.items.map(item => {
-                            return (
-                                <EventsListItems
-                                key={item.id}
-                                title={item.name}
-                                href={item.id}
-                                description={item.description}
-                                />
-                            );
-                            })}
-                        </EventsList>
-                        )}
-                    </Col>
-                </Row>
-          </Container>
+            <div className="listedevents">
+                <Navbar />
+                    <Row>
+                        <Col size="sm-12">
+                            {!this.state.items.length ? (
+                            <h1 className="text-center">No events have been created yet.</h1>
+                            ) : (
+                            <EventsList>
+                                {this.state.items.map(item => {
+                                return (
+                                    <EventsListItems
+                                    key={item.id}
+                                    title={item.name}
+                                    href={item.id}
+                                    description={item.description}
+                                    />
+                                );
+                                })}
+                            </EventsList>
+                            )}
+                        </Col>
+                    </Row>
+            </div>
         )
     }
 }
