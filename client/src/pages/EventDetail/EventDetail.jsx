@@ -92,61 +92,57 @@ class EventDetail extends Component {
         });   
     };
 
-    render() {
-        return (
+  render() {
+    
+    return (
+      <div>       
+        <Navbar />
+      <div id='EventPageStyle' className="container-fluid">
 
-            <div className="container-fluid">
-
-                <div className="row justify-content-center">
-                    <div className="col-sm-auto" align='center'>
-                        <h1 className='eventName'>{this.state.name}</h1>
-                    </div>
-                </div>
-
-                <div className="row justify-content-center">
-                    <div className="col-sm-auto" align='center'>
-                        <button type='button' onClick={this.joinEvent} className='joinbutton'>Join</button>
-                    </div>
-                </div>
-
-
-                <div className="row justify-content-center">
-                    <div className='col-sm-auto'>
-                        <div align="center">
-                            <GoogleApiWrapper position="relative" className='map' />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row justify-content-center gapDiv">
-                    <div className="col-sm-auto">
-                        <EventDescription
-                            body={this.state.description}
-                        />
-                    </div>
-                </div>
-                <div>
-                    <CommentBox
-                        handleChange={this.handleInputChange}
-                        handleClick={this.onHandleClick}
-                    />
-                    <CommentList>
-                        {this.state.comments.map(comment => {
-                            return (
-                                <CommentListItem
-                                key = {comment.id}
-                                userName = {comment.User.firstName}
-                                imageUrl = {comment.User.imageUrl}
-                                commentBody = {comment.text}
-                                postDate = {comment.createdAt}
-                                 />
-                            );
-                        })};
-                </CommentList>
-                </div>
+          <div className="row justify-content-center">
+            <div className="col-sm-auto" align='center'>
+              <h1 className='eventName'>{this.state.name}</h1>
             </div>
-        );
-    }
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-sm-auto" align='center'>
+            <JoinEventButton/>
+            </div>
+          </div>
+
+
+          <div className="row justify-content-center">
+            <div className='col-sm-auto'>
+              <div className="mapWrapper">
+                <GoogleApiWrapper/>
+              </div>
+            </div>
+          </div>
+
+          <div className="row justify-content-center gapDiv">
+            <div className="col-auto">
+              <EventAddress address={this.state.address} citystate={this.state.cityState} zip={this.state.zip}/>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-sm-auto">
+              <EventDescription description={this.state.description} timestampCreated={this.state.timestampCreated}/>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-sm-auto lastDiv">
+              <PeopleJoined usersjoined={this.state.usersjoined}/>
+            </div>
+          </div>
+
+        </div>  
+      </div>      
+          
+    );
+  }
 }
 
 

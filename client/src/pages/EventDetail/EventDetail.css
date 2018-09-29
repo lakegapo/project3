@@ -5,8 +5,11 @@ body {
 }
 
 #EventPageStyle {
-    background-image: url('./ad6e2f271fbf3ed5ea0aebade821c7e6.jpg');
+    background-image: url('../createEvent/background.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .eventName {
@@ -15,9 +18,18 @@ body {
   border-radius: 10px;
   padding: 2%;
   width: 90%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
   
 .gapDiv {
   margin-top: 200px;
 }
 
+.mapWrapper {
+  width: 350px;
+  margin-right: auto;
+}
+
+.lastDiv {
+  padding-bottom: 30px;
+}
