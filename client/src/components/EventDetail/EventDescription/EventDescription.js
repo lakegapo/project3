@@ -1,5 +1,6 @@
 import React from 'react';
 import './EventDescription.css';
+var moment = require('moment');
 
 
 

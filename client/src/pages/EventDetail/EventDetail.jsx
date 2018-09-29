@@ -9,6 +9,7 @@ import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined
 import "./EventDetail.css";
 
 
+
  class EventDetail extends Component {
 
     state = {
