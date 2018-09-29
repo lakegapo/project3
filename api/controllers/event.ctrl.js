@@ -10,8 +10,8 @@ module.exports = {
       citystate: req.body.citystate,
       zip: req.body.zip,
       description: req.body.description,
-      UserId : req.body.UserId
-      // category: req.body.category
+      UserId : req.body.UserId,
+      category: req.body.category
     };
     models.Event.create(event)
       .then(resp => {
@@ -43,6 +43,17 @@ module.exports = {
     .catch(err => {
       res.json(err).status(400);
     });
+  },
+
+  categoryGetAll: (req, res) => {
+    const citystate = req.params.citystate;
+    const category = req.params.category;
+    models.Event.findAll({
+      where: {citystate, category}
+    })
+    .then(resp => {
+      res.json(resp)
+    })
   }
 
 };
