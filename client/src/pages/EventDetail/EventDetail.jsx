@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import axios from "axios";
 import EventDescription from '../../components/EventDetail/EventDescription/EventDescription';
 import GoogleApiWrapper from '../../components/Map/EventMap/EventMap';
+import { Navbar } from "../../components/Navbar/Navbar";
 import JoinEventButton from '../../components/EventButton/JoinEventButton'
 import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
 import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined';
-import './EventDetail.css'
+import "./EventDetail.css";
 
 
  class EventDetail extends Component {
@@ -39,6 +40,9 @@ import './EventDetail.css'
   render() {
     
     return (
+      <div>       
+        <Navbar />
+        <div className="container-fluid">
       <div id='EventPageStyle' className="container-fluid">
 
           <div className="row justify-content-center">
@@ -80,7 +84,9 @@ import './EventDetail.css'
             </div>
           </div>
 
-        </div>   
+        </div>  
+      </div>      
+    </div>   
           
     );
   }

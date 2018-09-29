@@ -7,8 +7,8 @@ const EventAddress = props => (
             <h2 className="eventDescriptionHeader">Where</h2>
         </div>
         <div className="row justify-content-center">
-            <div className="col-sm-12">
-                <a className='addressStyle fa'> &#xf017; {props.address} {props.citystate} {props.zip}</a>
+            <div className="col-sm-12 textAlign">
+                <div className='descriptionStyle'><i className='fa'>&#xf041;</i> {props.address} {props.citystate} {props.zip}</div>
             </div>
         </div>
     </div>
