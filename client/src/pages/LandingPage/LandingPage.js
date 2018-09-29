@@ -23,7 +23,7 @@ class LandingPage extends Component {
                 })
         };
         return (
-            <div id="landingPage" className="container">
+            <div id="landingPage" className="container-fluid">
 
             
                 <div className="row justify-content-center">
