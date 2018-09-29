@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './EventDescription.css';
-import EDDescription from "../EDDescription/EDDescription";
+
 
 
 const EventDescription = props => (
   <div id="eventDescription" className="container">
     <div className="container-fluid">
-      <h2 className="eventDescriptionHeader">Event Description</h2>
+      <h2 className="eventDescriptionHeader">Event Details</h2>
     </div>
     <div className="row justify-content-center">
       <div className="col-sm-12">
-        <EDDescription
-          body={props.body}
-        />
+        <div className='descriptionStyle'><i className='fa'>&#xf073;</i>Event Starting: {props.timestampCreated}</div>
+        <div className='descriptionStyle'><i className='fa'>&#xf2be;</i>Hosted By: Eddie Borja</div>
+        <div className='descriptionStyle'><i className='fa'>&#xf075;</i>{props.description}</div>
       </div>
     </div>
   </div>
