@@ -30,7 +30,7 @@ export class ListedEvents extends Component {
                     <Row>
                         <Col size="sm-12">
                             {!this.state.items.length ? (
-                            <h1 className="text-center">No events have been created yet.</h1>
+                            <h2 className="text-center">No events have been created yet.</h2>
                             ) : (
                             <EventsList>
                                 {this.state.items.map(item => {

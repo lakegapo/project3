@@ -1,3 +1,6 @@
 .listedevents {
     margin-top: 0;
+    background-color: lightcoral;
+    height: 100vh;
+    color: white;
 }
