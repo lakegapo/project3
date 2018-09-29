@@ -5,7 +5,8 @@ const style = {
     width: '290px',
     height: '220px',
     border: "3px solid #f76c6c",
-    marginLeft: "30px"
+    marginLeft: "30px",
+    borderRadius: "5px"
     
   }
 
