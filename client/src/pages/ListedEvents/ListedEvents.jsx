@@ -41,6 +41,7 @@ export class ListedEvents extends Component {
                                     title={item.name}
                                     href={item.id}
                                     description={item.description}
+                                    date={item.date}
                                     />
                                 );
                                 })}
