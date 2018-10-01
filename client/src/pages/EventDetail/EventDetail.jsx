@@ -10,6 +10,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import JoinEventButton from '../../components/EventButton/JoinEventButton'
 import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
 import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined';
+import PeopleJoinedItem from "../../components/EventDetail/PeopleJoined/PeopleJoinedItem"
 import "./EventDetail.css";
 
 
@@ -25,7 +26,7 @@ class EventDetail extends Component {
         id: "",
         commentBody: "",
         comments: [],
-        guests: []
+        attendees: []
     }
 
     handleInputChange = event => {
@@ -84,18 +85,16 @@ class EventDetail extends Component {
             });
         axios.get("/api/comments/" + id)
             .then(resp => {
-                // console.log(resp);
                 this.setState({
                     comments: resp.data
                 })
-                // console.log(this.state.comments);
             });
         axios.get("/api/guests/" + id)
             .then(resp => {
                 console.log("guests", resp, "///////");
-                // this.setState({
-                    // guests: resp.data
-                // })
+                this.setState({
+                    attendees: resp.data
+                })
             });
     };
 
@@ -141,8 +140,18 @@ class EventDetail extends Component {
 
                     <div className="row justify-content-center">
                         <div className="col-sm-auto lastDiv">
-                            <PeopleJoined usersjoined={this.state.guests} />
-                        </div>
+                           <PeopleJoined>
+                                {this.state.attendees.map(attendee => {
+                                    return (
+                                        <PeopleJoinedItem
+                                            key={attendee.id}
+                                            firstName = {attendee.User.firstName}
+                                            imageUrl = {attendee.User.imageUrl}
+                                        />
+                                    );
+                                })}
+                            </PeopleJoined>
+                        </div>  
                     </div>
 
                     <div className="row justify-content-center">
