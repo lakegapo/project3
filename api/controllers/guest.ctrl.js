@@ -17,7 +17,8 @@ module.exports = {
         }
         models.Guest.findOrCreate({
             where: {
-                UserId: guest.UserId
+                UserId: guest.UserId,
+                EventId: guest.EventId
             },
             defaults: guest
         })
@@ -30,8 +31,14 @@ module.exports = {
     },
     getAllPerEvent: (req, res) => {
         const id = req.params.id;
-        models.Event.findAll({
-          where: {id: id}
+        models.Guest.findAll({
+          include: [
+              {
+                  model: models.User,
+                  attributes: ["firstName", "imageUrl"]
+              }
+          ],
+          where: {eventId: id}
         })
         .then(resp => {
           res.json(resp);

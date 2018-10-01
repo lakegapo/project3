@@ -51,9 +51,8 @@ class EventDetail extends Component {
     };
 
     joinEvent = event => {
-        console.log("TESTSTEST");
         event.preventDefault();
-        console.log(this.state.loggedUser);
+        // console.log(this.state.loggedUser);
         console.log(this.state.id);
         axios.post("/api/guests", {
             userId: this.state.loggedUser,
@@ -85,18 +84,19 @@ class EventDetail extends Component {
             });
         axios.get("/api/comments/" + id)
             .then(resp => {
-                console.log(resp);
+                // console.log(resp);
                 this.setState({
                     comments: resp.data
                 })
                 // console.log(this.state.comments);
             });
-        // axios.get("/api/guests/" + id)
-        //     .then(resp => {
-        //         this.setState({
-        //             guests: resp.data
-        //         })
-        //     });
+        axios.get("/api/guests/" + id)
+            .then(resp => {
+                console.log("guests", resp, "///////");
+                // this.setState({
+                    // guests: resp.data
+                // })
+            });
     };
 
     render() {
