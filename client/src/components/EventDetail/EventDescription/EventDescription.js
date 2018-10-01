@@ -11,7 +11,7 @@ const EventDescription = props => (
     <div className="row justify-content-center">
       <div className="col-sm-12">
         <div className='descriptionStyle'><i className='fa'>&#xf073;</i>Event Starting: {props.timestampCreated}</div>
-        <div className='descriptionStyle'><i className='fa'>&#xf2be;</i>Hosted By: Eddie Borja</div>
+        <div className='descriptionStyle'><i className='fa'>&#xf2be;</i>Hosted By: {props.createdBy}</div>
         <div className='descriptionStyle'><i className='fa'>&#xf075;</i>{props.description}</div>
       </div>
     </div>

@@ -35,6 +35,12 @@ module.exports = {
   getOne: (req, res) => {
     const id = req.params.id;
     models.Event.findOne({
+      include: [
+        {
+          model: models.User,
+          attributes: ["firstName"]
+        }
+      ],
       where: {id: id}
     })
     .then(resp => {

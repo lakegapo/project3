@@ -10,7 +10,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import JoinEventButton from '../../components/EventButton/JoinEventButton'
 import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
 import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined';
-import PeopleJoinedItem from "../../components/EventDetail/PeopleJoined/PeopleJoinedItem"
+import PeopleJoinedItem from "../../components/EventDetail/PeopleJoined/PeopleJoinedItem";
 import "./EventDetail.css";
 
 
@@ -26,7 +26,8 @@ class EventDetail extends Component {
         id: "",
         commentBody: "",
         comments: [],
-        attendees: []
+        attendees: [],
+        eventCreator: ""
     }
 
     handleInputChange = event => {
@@ -73,14 +74,15 @@ class EventDetail extends Component {
         const id = this.props.match.params.id;
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
-                // console.log(resp);
+                console.log(resp);
                 this.setState({
                     name: resp.data.name,
                     description: resp.data.description,
                     id: resp.data.id,
                     address: resp.data.address1,
                     cityState: resp.data.citystate,
-                    zip: resp.data.zip
+                    zip: resp.data.zip,
+                    eventCreator: resp.data.User.firstName
                 })
             });
         axios.get("/api/comments/" + id)
@@ -134,7 +136,7 @@ class EventDetail extends Component {
 
                     <div className="row justify-content-center">
                         <div className="col-sm-auto">
-                            <EventDescription description={this.state.description} timestampCreated={this.state.timestampCreated} />
+                            <EventDescription description={this.state.description} timestampCreated={this.state.timestampCreated} createdBy={this.state.eventCreator} />
                         </div>
                     </div>
 
