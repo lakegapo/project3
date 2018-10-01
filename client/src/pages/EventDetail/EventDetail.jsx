@@ -31,6 +31,13 @@ class EventDetail extends Component {
         date: ""
     }
 
+    
+  titleCase = str => {
+    return str.toLowerCase().split(' ').map(function(word) {
+      return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' ');
+  }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -76,12 +83,14 @@ class EventDetail extends Component {
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
                 console.log(resp);
+                const cleanCityState = resp.data.citystate.replace(/-/g," ");
+                const upperCaseCityState = this.titleCase(cleanCityState);
                 this.setState({
                     name: resp.data.name,
                     description: resp.data.description,
                     id: resp.data.id,
                     address: resp.data.address1,
-                    cityState: resp.data.citystate,
+                    cityState: upperCaseCityState,
                     zip: resp.data.zip,
                     eventCreator: resp.data.User.firstName,
                     date: resp.data.date
@@ -138,7 +147,7 @@ class EventDetail extends Component {
 
                     <div className="row justify-content-center">
                         <div className="col-sm-auto">
-                            <EventDescription description={this.state.description} eventDate={this.state.date} createdBy={this.state.eventCreator} />
+                            <EventDescription description={this.state.description} eventDate={this.state.date} createdBy={this.titleCase(this.state.eventCreator)} />
                         </div>
                     </div>
 
