@@ -6,10 +6,7 @@
     padding-bottom: 3%;
     color: white;
 }
-#eventsListItemsTitle {
-    text-align: center;
-}
-#goToEventBtn {
+#goToEventBtn, #eventsListItemsTitle {
     text-align: center;
 }
 #goToEventBtn .btn {
