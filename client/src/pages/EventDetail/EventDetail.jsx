@@ -27,7 +27,8 @@ class EventDetail extends Component {
         commentBody: "",
         comments: [],
         attendees: [],
-        eventCreator: ""
+        eventCreator: "",
+        date: ""
     }
 
     handleInputChange = event => {
@@ -82,7 +83,8 @@ class EventDetail extends Component {
                     address: resp.data.address1,
                     cityState: resp.data.citystate,
                     zip: resp.data.zip,
-                    eventCreator: resp.data.User.firstName
+                    eventCreator: resp.data.User.firstName,
+                    date: resp.data.date
                 })
             });
         axios.get("/api/comments/" + id)
@@ -136,7 +138,7 @@ class EventDetail extends Component {
 
                     <div className="row justify-content-center">
                         <div className="col-sm-auto">
-                            <EventDescription description={this.state.description} timestampCreated={this.state.timestampCreated} createdBy={this.state.eventCreator} />
+                            <EventDescription description={this.state.description} eventDate={this.state.date} createdBy={this.state.eventCreator} />
                         </div>
                     </div>
 
