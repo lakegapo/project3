@@ -4,6 +4,8 @@ import axios from "axios";
 import { Row, Col } from '../../components/Grid'
 import { Navbar } from "../../components/Navbar/Navbar";
 import "./ListedEvents.css";
+import { NoEventsYet } from '../../components/NoEventsYet/NoEventsYet';
+
 
 export class ListedEvents extends Component {
 
@@ -31,7 +33,7 @@ export class ListedEvents extends Component {
                     <Row>
                         <Col size="sm-12">
                             {!this.state.items.length ? (
-                            <h1 className="text-center">No events have been created yet.</h1>
+                            <NoEventsYet />
                             ) : (
                             <EventsList>
                                 {this.state.items.map(item => {
