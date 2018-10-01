@@ -6,8 +6,9 @@ const style = {
     height: '220px',
     border: "3px solid #f76c6c",
     marginLeft: "30px",
-    borderRadius: "5px"
-    
+    borderRadius: "5px",
+    boxShadow: "3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)"
+
   }
 
 export class MapContainer extends Component {

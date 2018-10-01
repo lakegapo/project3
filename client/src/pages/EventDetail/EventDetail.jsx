@@ -43,7 +43,6 @@ import "./EventDetail.css";
     return (
       <div>       
         <Navbar />
-        <div className="container-fluid">
       <div id='EventPageStyle' className="container-fluid">
 
           <div className="row justify-content-center">
@@ -61,14 +60,14 @@ import "./EventDetail.css";
 
           <div className="row justify-content-center">
             <div className='col-sm-auto'>
-              <div>
+              <div className="mapWrapper">
                 <GoogleApiWrapper/>
               </div>
             </div>
           </div>
 
           <div className="row justify-content-center gapDiv">
-            <div className="col-sm-auto">
+            <div className="col-auto">
               <EventAddress address={this.state.address} citystate={this.state.cityState} zip={this.state.zip}/>
             </div>
           </div>
@@ -80,14 +79,13 @@ import "./EventDetail.css";
           </div>
 
           <div className="row justify-content-center">
-            <div className="col-sm-auto">
+            <div className="col-sm-auto lastDiv">
               <PeopleJoined usersjoined={this.state.usersjoined}/>
             </div>
           </div>
 
         </div>  
       </div>      
-    </div>   
           
     );
   }
