@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import EventDetail from './pages/EventDetail/EventDetail';
 import CreateEvent from './pages/createEvent/createEvent';
 import Home from "./pages/Home/Home";
+import Page404 from "./pages/Page404/Page404";
 import { ListedEvents } from "./pages/ListedEvents/ListedEvents";
 import LocationEventPage from './pages/LocationEventPage/LocationEventPage';
 
@@ -20,8 +21,9 @@ class App extends Component {
                 <Route exact path = "/listedevents" component = {ListedEvents} />
                 <Route path = "/eventdetail/:id" component = {EventDetail} />
                 <Route exact path = "/home" component = {Home} />
-                <Route exact path = "/:citystate/:category" component={LocationEventPage} />
+                <Route exact path = "/:citystate/:category" component={ListedEvents} />
                 <Route exact path = "/create" component = {CreateEvent} />
+                <Route component={Page404} />
               </Switch>
             </div>
           </Router>

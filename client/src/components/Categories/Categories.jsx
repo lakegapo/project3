@@ -28,7 +28,7 @@ class Categories extends Component {
                     <div className="row justify-content-center">
                         <div className="col-auto">
                             <div className="form-row form-group justify-content-center">
-                                <div className="col-sm-6">
+                                <div className="col-sm-auto">
                                     <label className="locationSelect" htmlFor="location">Select Location:</label>
                                     <select id="inputCityState" className="form-control" onChange={this.handleCityStateChange}>
                                         <option defaultValue>Choose...</option>

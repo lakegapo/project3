@@ -1,0 +1,23 @@
+@keyframes btnCategoriesHoverColorShift {
+    from {color: white}
+    to {color: lightblue}
+}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.categories {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("../Categories/categoryBack.jpg");
+    background-position: center center;
+    background: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.appHeader {
+    font-size: 20px;
+    font-weight: bold;
+    color: #F8E9A1;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}

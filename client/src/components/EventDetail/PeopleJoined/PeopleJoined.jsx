@@ -9,7 +9,7 @@ const PeopleJoined = (props) => {
             </div>
             <div className="row justify-content-center">
                 <div className="col-sm-12">
-                    <div className='descriptionStyle'>{props.usersjoined[0]}</div>
+                    <div className='descriptionStyle joinedList'>{props.usersjoined[0]}</div>
                 </div>
             </div>
         </div>
