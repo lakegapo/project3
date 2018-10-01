@@ -17,7 +17,10 @@ class EventDetail extends Component {
 
     state = {
         name: "",
-        loggedUser : sessionStorage.getItem("userId"),
+        loggedUser: sessionStorage.getItem("userId"),
+        address: "",
+        cityState: "",
+        zip: "",
         description: "",
         id: "",
         commentBody: "",
@@ -56,12 +59,12 @@ class EventDetail extends Component {
             userId: this.state.loggedUser,
             eventId: this.state.id
         })
-        .then(resp => {
-            console.log(resp);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            .then(resp => {
+                console.log(resp);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
 
@@ -74,7 +77,10 @@ class EventDetail extends Component {
                 this.setState({
                     name: resp.data.name,
                     description: resp.data.description,
-                    id: resp.data.id
+                    id: resp.data.id,
+                    address: resp.data.address1,
+                    cityState: resp.data.citystate,
+                    zip: resp.data.zip
                 })
             });
         axios.get("/api/comments/")
@@ -85,64 +91,70 @@ class EventDetail extends Component {
                 })
             });
         axios.get("/api/guests/")
-        .then(resp => {
-            this.setState({
-                guests: resp.data
-            })
-        });   
+            .then(resp => {
+                this.setState({
+                    guests: resp.data
+                })
+            });
     };
 
-  render() {
-    
-    return (
-      <div>       
-        <Navbar />
-      <div id='EventPageStyle' className="container-fluid">
+    render() {
 
-          <div className="row justify-content-center">
-            <div className="col-sm-auto" align='center'>
-              <h1 className='eventName'>{this.state.name}</h1>
+        return (
+            <div>
+                <Navbar />
+                <div id='EventPageStyle' className="container-fluid">
+
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto" align='center'>
+                            <h1 className='eventName'>{this.state.name}</h1>
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto" align='center'>
+                            <JoinEventButton />
+                        </div>
+                    </div>
+
+
+                    <div className="row justify-content-center">
+                        <div className='col-sm-auto'>
+                            <div className="mapWrapper">
+                                <GoogleApiWrapper />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center gapDiv">
+                        <div className="col-auto">
+                            <EventAddress address={this.state.address} citystate={this.state.cityState} zip={this.state.zip} />
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto">
+                            <EventDescription description={this.state.description} timestampCreated={this.state.timestampCreated} />
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto lastDiv">
+                            <PeopleJoined usersjoined={this.state.guests} />
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
+                        <div className="col-sm-auto lastDiv">
+                            <CommentBox />
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
 
-          <div className="row justify-content-center">
-            <div className="col-sm-auto" align='center'>
-            <JoinEventButton/>
-            </div>
-          </div>
-
-
-          <div className="row justify-content-center">
-            <div className='col-sm-auto'>
-              <div className="mapWrapper">
-                <GoogleApiWrapper/>
-              </div>
-            </div>
-          </div>
-
-          <div className="row justify-content-center gapDiv">
-            <div className="col-auto">
-              <EventAddress address={this.state.address} citystate={this.state.cityState} zip={this.state.zip}/>
-            </div>
-          </div>
-
-          <div className="row justify-content-center">
-            <div className="col-sm-auto">
-              <EventDescription description={this.state.description} timestampCreated={this.state.timestampCreated}/>
-            </div>
-          </div>
-
-          <div className="row justify-content-center">
-            <div className="col-sm-auto lastDiv">
-              <PeopleJoined usersjoined={this.state.usersjoined}/>
-            </div>
-          </div>
-
-        </div>  
-      </div>      
-          
-    );
-  }
+        );
+    }
 }
 
 
