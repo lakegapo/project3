@@ -7,7 +7,6 @@ export const NoEventsYet = () => {
 
     return (
         <div className="categories">
-            <Navbar />
             <div className="container-fluid">
                 <div className="appHeader">No events have been created yet</div>
             </div>
