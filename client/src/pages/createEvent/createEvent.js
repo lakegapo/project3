@@ -66,12 +66,12 @@ class CreateEvent extends Component {
             description: this.state.description,
             UserId: loggedUser
         })
-            .then(resp => {
-                // window.location.assign("/eventdetail/" + resp.data.id);
-            })
-            .catch(err => {
-                console.error(err)
-            });
+        .then(resp => {
+            window.location.assign("/eventdetail/" + resp.data.id);
+        })
+        .catch(err => {
+            console.error(err)
+        });
     };
 
     render() {

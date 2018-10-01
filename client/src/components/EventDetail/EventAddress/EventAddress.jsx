@@ -8,7 +8,7 @@ const EventAddress = props => (
         </div>
         <div className="row justify-content-center">
             <div className="col-sm-12 textAlign">
-                <div className='descriptionStyle'><i className='fa'>&#xf041;</i> {props.address} {props.citystate} {props.zip}</div>
+                <div className='descriptionStyle'><i className='fa'>&#xf041;</i> {props.address}, {props.citystate}, {props.zip}</div>
             </div>
         </div>
     </div>

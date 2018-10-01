@@ -20,7 +20,7 @@ class App extends Component {
                 <Route exact path = "/listedevents" component = {ListedEvents} />
                 <Route path = "/eventdetail/:id" component = {EventDetail} />
                 <Route exact path = "/home" component = {Home} />
-                <Route exact path = "/:citystate/:category" component={LocationEventPage} />
+                <Route exact path = "/:citystate/:category" component={ListedEvents} />
                 <Route exact path = "/create" component = {CreateEvent} />
               </Switch>
             </div>
