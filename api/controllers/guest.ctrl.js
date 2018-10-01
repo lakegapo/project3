@@ -27,5 +27,17 @@ module.exports = {
             .catch(err => {
                 res.json(err).status(400);
             })
-    }
+    },
+    getAllPerEvent: (req, res) => {
+        const id = req.params.id;
+        models.Event.findAll({
+          where: {id: id}
+        })
+        .then(resp => {
+          res.json(resp);
+        })
+        .catch(err => {
+          res.json(err).status(400);
+        });
+      }
 }

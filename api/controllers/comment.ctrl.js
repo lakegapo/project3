@@ -1,13 +1,15 @@
 const models = require("../models");
 module.exports = {
   getAll: (req, res) => {
+    const id = req.params.id;
     models.Comment.findAll({
       include: [
         {
           model: models.User,
           attributes: ["firstName", "imageUrl"]
         }
-      ]
+      ],
+      where: { eventId: id }
     })
       .then(resp => {
         res.json(resp);
@@ -16,7 +18,6 @@ module.exports = {
         res.json(err).status(400);
       });
   },
-  //createOne checks if the googleid has hit db before, if not creates row and either way sends back user object as response so front end can store db id in session storage
   createOne: (req, res) => {
     const comment = {
       text: req.body.text,

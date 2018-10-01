@@ -83,19 +83,20 @@ class EventDetail extends Component {
                     zip: resp.data.zip
                 })
             });
-        axios.get("/api/comments/")
+        axios.get("/api/comments/" + id)
             .then(resp => {
-                // console.log(resp);
+                console.log(resp);
                 this.setState({
                     comments: resp.data
                 })
+                // console.log(this.state.comments);
             });
-        axios.get("/api/guests/")
-            .then(resp => {
-                this.setState({
-                    guests: resp.data
-                })
-            });
+        // axios.get("/api/guests/" + id)
+        //     .then(resp => {
+        //         this.setState({
+        //             guests: resp.data
+        //         })
+        //     });
     };
 
     render() {
@@ -113,7 +114,7 @@ class EventDetail extends Component {
 
                     <div className="row justify-content-center">
                         <div className="col-sm-auto" align='center'>
-                            <JoinEventButton />
+                            <JoinEventButton onClick={this.joinEvent}/>
                         </div>
                     </div>
 
@@ -146,7 +147,23 @@ class EventDetail extends Component {
 
                     <div className="row justify-content-center">
                         <div className="col-sm-auto lastDiv">
-                            <CommentBox />
+                            <CommentBox
+                                handleChange={this.handleInputChange}
+                                handleClick={this.onHandleClick}
+                            />
+                            <CommentList>
+                                {this.state.comments.map(comment => {
+                                    return (
+                                        <CommentListItem
+                                            key={comment.id}
+                                            userName={comment.User.firstName}
+                                            imageUrl={comment.User.imageUrl}
+                                            commentBody={comment.text}
+                                            postDate={comment.createdAt}
+                                        />
+                                    );
+                                })};
+                            </CommentList>
                         </div>
                     </div>
 
