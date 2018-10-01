@@ -13,8 +13,9 @@ export class ListedEvents extends Component {
 
   componentDidMount() {
     // GRAB API
-    console.log("TEST2")
-    axios.get("/api/events")
+    const citystate = this.props.match.params.citystate;
+    const category = this.props.match.params.category;
+    axios.get("/api/events/" + citystate + "/" + category)
     .then(resp => {
         console.log(resp.data);
         this.setState({
