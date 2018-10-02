@@ -2,10 +2,6 @@
 
 .listedevents {
     margin-top: 0;
-<<<<<<< HEAD
-    overflow-x: hidden;
-}
-=======
     height: 100vh;
     font-family: 'Open Sans', sans-serif;
     background-image: url("../../components//Categories/categoryBack.jpg");
@@ -13,4 +9,3 @@
 }
 
 
->>>>>>> f0cefb1b65e8953c69ddbce053cbd30ba4203a06

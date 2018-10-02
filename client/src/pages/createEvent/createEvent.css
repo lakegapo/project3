@@ -8,6 +8,19 @@
     padding: 25px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#createFormNotLoggedIn {
+    background-image: url("./background.jpg");
+    background-repeat: no-repeat;
+    position: center center;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid #AAA;
+    padding: 25px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
 }
 
 #formLogo {
@@ -84,4 +97,20 @@ option {
 
 .react-time-picker {
     background-color: white;
+}
+
+.createNoUserHeader {
+    font-size: 25px;
+    width: 100%
+}
+
+.loginButtonCreatePage {
+    padding: 15px 30px 15px 30px;
+    background-color: salmon;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif!important;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    
 }
