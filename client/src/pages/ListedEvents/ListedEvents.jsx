@@ -30,7 +30,7 @@ export class ListedEvents extends Component {
         return (
             <div className="listedevents">
                 <Navbar />
-                    <Row>
+                    <Row fluid>
                         <Col size="sm-12">
                             {!this.state.items.length ? (
                             <NoEventsYet />
