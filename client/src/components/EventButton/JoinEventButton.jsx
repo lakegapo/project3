@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import "./JoinEventButton.css";
 
-class JoinEventButton extends Component {
-    render() {
-        return (
-            <button className="btn btn-md btnJoinEvent">
-                <a href="/join">Join Event</a>
-            </button>
-        )
-    }
-}
+const JoinEventButton = props => (
+    <button className="btn btn-md btnJoinEvent">
+        <a href="/join" onClick={props.onClick}>Join Event</a>
+    </button>
+)
 
 export default JoinEventButton;

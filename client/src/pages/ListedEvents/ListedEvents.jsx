@@ -4,6 +4,8 @@ import axios from "axios";
 import { Row, Col } from '../../components/Grid'
 import { Navbar } from "../../components/Navbar/Navbar";
 import "./ListedEvents.css";
+import { NoEventsYet } from '../../components/NoEventsYet/NoEventsYet';
+
 
 export class ListedEvents extends Component {
 
@@ -13,8 +15,9 @@ export class ListedEvents extends Component {
 
   componentDidMount() {
     // GRAB API
-    console.log("TEST2")
-    axios.get("/api/events")
+    const citystate = this.props.match.params.citystate;
+    const category = this.props.match.params.category;
+    axios.get("/api/events/" + citystate + "/" + category)
     .then(resp => {
         console.log(resp.data);
         this.setState({
@@ -27,10 +30,10 @@ export class ListedEvents extends Component {
         return (
             <div className="listedevents">
                 <Navbar />
-                    <Row>
+                    <Row fluid>
                         <Col size="sm-12">
                             {!this.state.items.length ? (
-                            <h1 className="text-center">No events have been created yet.</h1>
+                            <NoEventsYet />
                             ) : (
                             <EventsList>
                                 {this.state.items.map(item => {
@@ -40,6 +43,7 @@ export class ListedEvents extends Component {
                                     title={item.name}
                                     href={item.id}
                                     description={item.description}
+                                    date={item.date}
                                     />
                                 );
                                 })}

@@ -1,16 +1,19 @@
 import React from "react";
-import { Container, Row, Col } from "../Grid";
+import { Row, Col } from "../Grid";
+import "./EventsListItems.css";
 
 export const EventsListItems = props => (
-  <li className="list-group-item">
-    <Container>
-      <Row>
-        <Col size="sm-12">
-          <a href={`/eventdetail/${props.href}`}><h3>Title: {props.title}</h3></a>
-          <p>Summary: {props.description}</p>
-          <div>Starting Date: {props.date}</div>
-        </Col>
-      </Row>
-    </Container>
+  <li id="eventslistitems" className="list-group-item">
+    <a data-toggle="collapse" data-target={`#collapse${props.href}`} aria-expanded="true" aria-controls={`collapse${props.href}`} id="eventsListItemsTitle"><h3>{props.title}</h3></a>
+    <div id={`collapse${props.href}`} className="collapse" data-parent="#accordionEvents">
+      <div className="card-body">
+        <p><div className="eventsListItemsSubtitle">Description:</div> {props.description}</p>
+        <div><div className="eventsListItemsSubtitle">Starting Date:</div> {props.date}</div>
+
+        <div id="goToEventBtn">
+          <button className="btn"><a href={`/eventdetail/${props.href}`}>Go to Event</a></button>
+        </div>
+      </div>
+    </div>
   </li>
 );

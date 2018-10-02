@@ -18,6 +18,16 @@
     margin-right: auto;
 }
 
+
+.createLabel {
+    font-size: 16px;
+    text-shadow:
+    -1px -1px 0 #F8E9A1,
+    1px -1px 0 #F8E9A1,
+    -1px 1px 0 #F8E9A1,
+    1px 1px 0 #F8E9A1;
+}
+
 form {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
@@ -31,11 +41,23 @@ input {
 
 .submitButton {
     background-color: #a8d0e6;
+    text-shadow:
+    -1px -1px 0 #F8E9A1,
+    1px -1px 0 #F8E9A1,
+    -1px 1px 0 #F8E9A1,
+    1px 1px 0 #F8E9A1;
+    font-size: 16px;
+    margin-bottom: 30px;
 }
 
 #createHeader {
     font-family: 'Open Sans', sans-serif;
     margin-top: 25px;
+    text-shadow:
+    -1px -1px 0 #F8E9A1,
+    1px -1px 0 #F8E9A1,
+    -1px 1px 0 #F8E9A1,
+    1px 1px 0 #F8E9A1;
 }
 
 #inputCityState {

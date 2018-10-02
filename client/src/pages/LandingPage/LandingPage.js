@@ -16,7 +16,7 @@ class LandingPage extends Component {
             axios.post("/api/user", response.profileObj)
                 .then(resp => {
                     sessionStorage.setItem("userId", resp.data.id);
-                    window.location.assign("/listedevents");
+                    window.location.assign("/home");
                 })
                 .catch(e => {
                     console.error(e)
