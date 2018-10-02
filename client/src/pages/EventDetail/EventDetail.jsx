@@ -34,10 +34,15 @@ class EventDetail extends Component {
         comments: [],
         attendees: [],
         eventCreator: "",
-        date: ""
+        date: "",
+        long: "",
+        lat: ""
     }
 
-    
+  callAndReRender = () => {
+
+  }  
+
   titleCase = str => {
     return str.toLowerCase().split(' ').map(function(word) {
       return (word.charAt(0).toUpperCase() + word.slice(1));
@@ -53,10 +58,14 @@ class EventDetail extends Component {
 
 
 getGeocode = () => {
-    Geocode.fromAddress("11 danforth ave, 92677")
+    Geocode.fromAddress(this.state.address + "," + this.state.zip)
     .then(
         response => {
-            console.log("GEOCODE RESPONSE:" , response);
+            this.setState({
+                long: response.results[0].geometry.location.lng,
+                lat: response.results[0].geometry.location.lat
+            })
+            console.log("GEOCODE RESPONSE:" , response.results[0].geometry.location);
         }
     )
 };
@@ -98,7 +107,7 @@ getGeocode = () => {
         const id = this.props.match.params.id;
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
-                console.log(resp);
+                // console.log(resp);
                 const cleanCityState = resp.data.citystate.replace(/-/g," ");
                 const upperCaseCityState = this.titleCase(cleanCityState);
                 this.setState({
@@ -111,6 +120,7 @@ getGeocode = () => {
                     eventCreator: resp.data.User.firstName,
                     date: resp.data.date
                 })
+                this.getGeocode();
             });
         axios.get("/api/comments/" + id)
             .then(resp => {
@@ -120,12 +130,11 @@ getGeocode = () => {
             });
         axios.get("/api/guests/" + id)
             .then(resp => {
-                console.log("guests", resp, "///////");
+                // console.log("guests", resp, "///////");
                 this.setState({
                     attendees: resp.data
                 })
-            });
-        this.getGeocode();
+            });    
     };
 
     render() {
@@ -151,7 +160,7 @@ getGeocode = () => {
                     <div className="row justify-content-center">
                         <div className='col-sm-auto'>
                             <div className="mapWrapper">
-                                <GoogleApiWrapper />
+                                <GoogleApiWrapper geoLat={this.state.lat} geoLong={this.state.long}/>
                             </div>
                         </div>
                     </div>
