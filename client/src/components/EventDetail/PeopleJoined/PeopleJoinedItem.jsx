@@ -2,16 +2,13 @@ import React from "react";
 import { Container, Row, Col } from "../../Grid";
 
 const PeopleJoinedItem = props => (
-  <li className="list-group-item">
-    <Container>
-      <Row>
-        <Col size="sm-12">
-          <p>{props.firstName}</p>
-          <div><img src={props.imageUrl} /></div>
-        </Col>
-      </Row>
-    </Container>
-  </li>
+  <div>
+      <div className="row justify-content-center">
+          <div className="col-sm-12">
+              <div className='joinedList joinedStyles'>{props.firstName}</div>
+          </div>
+      </div>
+  </div>
 );
 
 export default PeopleJoinedItem;
