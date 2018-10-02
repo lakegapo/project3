@@ -56,6 +56,7 @@ class Categories extends Component {
                         </div> : `Select a location first`}
                 </div>
             </div>
+
         )
     }
 }

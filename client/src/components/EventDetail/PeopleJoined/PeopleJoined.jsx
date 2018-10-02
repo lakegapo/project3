@@ -16,4 +16,4 @@ const PeopleJoined = (props) => {
     )
 }
 
-export default PeopleJoined
+export default PeopleJoined;
