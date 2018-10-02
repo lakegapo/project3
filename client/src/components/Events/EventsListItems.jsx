@@ -1,5 +1,4 @@
 import React from "react";
-import { Row, Col } from "../Grid";
 import "./EventsListItems.css";
 
 export const EventsListItems = props => (
