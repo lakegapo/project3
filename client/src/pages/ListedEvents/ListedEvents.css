@@ -4,5 +4,8 @@
     margin-top: 0;
     height: 100vh;
     font-family: 'Open Sans', sans-serif;
+    background-image: url("../../components//Categories/categoryBack.jpg");
     overflow-x: hidden;
 }
+
+
