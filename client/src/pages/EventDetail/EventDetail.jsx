@@ -37,11 +37,7 @@ class EventDetail extends Component {
         date: "",
         long: "",
         lat: ""
-    }
-
-  callAndReRender = () => {
-
-  }  
+    } 
 
   titleCase = str => {
     return str.toLowerCase().split(' ').map(function(word) {
@@ -79,6 +75,13 @@ getGeocode = () => {
         })
             .then(resp => {
                 console.log(resp);
+                const id = this.props.match.params.id;
+                axios.get("/api/comments/" + id)
+                .then(resp => {
+                    this.setState({
+                        comments: resp.data
+                    })
+                });
             })
             .catch(err => {
                 console.log(err);
@@ -95,6 +98,14 @@ getGeocode = () => {
         })
             .then(resp => {
                 console.log(resp);
+                const id = this.props.match.params.id;
+                axios.get("/api/guests/" + id)
+                .then(resp => {
+                    // console.log("guests", resp, "///////");
+                    this.setState({
+                        attendees: resp.data
+                    })
+                }); 
             })
             .catch(err => {
                 console.log(err);
