@@ -159,7 +159,6 @@ class EventDetail extends Component {
                                         <PeopleJoinedItem
                                             key={attendee.id}
                                             firstName = {attendee.User.firstName}
-                                            imageUrl = {attendee.User.imageUrl}
                                         />
                                     );
                                 })}
