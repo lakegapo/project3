@@ -11,7 +11,7 @@ export const Navbar = () => {
             </div>
 
             <div className="navbarfont nav-item nav-mid">
-                <a className="nav-link" href="/home">Categories</a>
+                <a className="fa nav-link" href="/create">&#xf055;</a>
             </div>
 
             <div className="navbarfont nav-item nav-right">
