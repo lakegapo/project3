@@ -43,6 +43,7 @@ class CreateEvent extends Component {
 
     // Console logs state and submits form. Redirects to Event Detail Page pending
     handleFormSubmit = (event) => {
+        let ok = true;
         event.preventDefault();
         console.log(sessionStorage.getItem("userId"));
         console.log("Event Creation Details");
@@ -56,24 +57,37 @@ class CreateEvent extends Component {
         console.log("this.state.zip: ", this.state.zip);
         console.log("this.state.description: ", this.state.description);
         const loggedUser = sessionStorage.getItem("userId");
-        axios.post("/api/events", {
-            name: this.state.name,
-            category: this.state.category,
-            date: this.state.date,
-            time: this.state.time,
-            address1: this.state.address1,
-            address2: this.state.address2,
-            citystate: this.state.citystate,
-            zip: this.state.zip,
-            description: this.state.description,
-            UserId: loggedUser
+
+        var array = Object.keys(this.state);
+        array.forEach(key => {
+            if (this.state[key] === "" && key !== "address2" && key !== "citystate") {
+                ok = false;
+                console.log(key);
+                document.querySelector(`input[name=${key}`).style.background = "rgba(255, 0, 0, 0.1)";
+            } else {
+                axios.post("/api/events", {
+                    name: this.state.name,
+                    category: this.state.category,
+                    date: this.state.date,
+                    time: this.state.time,
+                    address1: this.state.address1,
+                    address2: this.state.address2,
+                    citystate: this.state.citystate,
+                    zip: this.state.zip,
+                    description: this.state.description,
+                    UserId: loggedUser
+                })
+                    .then(resp => {
+                        if (ok) {
+                            window.location.assign("/eventdetail/" + resp.data.id);
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err)
+                    });
+            }
         })
-            .then(resp => {
-                window.location.assign("/eventdetail/" + resp.data.id);
-            })
-            .catch(err => {
-                console.error(err)
-            });
+
     };
 
     render() {
@@ -101,7 +115,7 @@ class CreateEvent extends Component {
             <div>
                 <Navbar />
 
-                {!sessionStorage.getItem("UserId") ?
+                {!sessionStorage.getItem("userId") ?
 
                     <div id="createFormNotLoggedIn" className="container-fluid">
                         <div className="row justify-content-center">
@@ -201,7 +215,7 @@ class CreateEvent extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="eventDescription" className=" createLabel">Event Description</label>
-                                        <textarea className="form-control" id="eventDesciption" name="description" onChange={this.handleChange} rows="3"></textarea>
+                                        <input className="form-control" id="eventDesciption" name="description" onChange={this.handleChange} rows="3" />
                                     </div>
                                     <button type="submit" className="btn submitButton" onClick={this.handleFormSubmit}>Create Event</button>
                                 </form>
