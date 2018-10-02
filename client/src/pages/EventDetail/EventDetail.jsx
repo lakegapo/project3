@@ -11,10 +11,16 @@ import JoinEventButton from '../../components/EventButton/JoinEventButton'
 import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
 import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined';
 import PeopleJoinedItem from "../../components/EventDetail/PeopleJoined/PeopleJoinedItem";
+import Geocode from "react-geocode";
 import "./EventDetail.css";
 
 
 class EventDetail extends Component {
+
+    constructor(props) {
+        super(props);
+        Geocode.setApiKey("AIzaSyCmg-aZlnjf6veyiNfkBYW3_B-iBYCCyek");
+    }
 
     state = {
         name: "",
@@ -44,6 +50,16 @@ class EventDetail extends Component {
             [name]: value
         });
     };
+
+
+getGeocode = () => {
+    Geocode.fromAddress("11 danforth ave, 92677")
+    .then(
+        response => {
+            console.log("GEOCODE RESPONSE:" , response);
+        }
+    )
+};
 
     onHandleClick = event => {
         event.preventDefault();
@@ -109,6 +125,7 @@ class EventDetail extends Component {
                     attendees: resp.data
                 })
             });
+        this.getGeocode();
     };
 
     render() {
