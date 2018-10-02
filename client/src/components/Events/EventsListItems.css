@@ -5,6 +5,10 @@
     padding: 0;
     padding-bottom: 3%;
     color: white;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
 }
 #goToEventBtn, #eventsListItemsTitle {
     text-align: center;
