@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./NoEventsYet.css";
-import { Navbar } from "../Navbar/Navbar";
 
 
 export const NoEventsYet = () => {
