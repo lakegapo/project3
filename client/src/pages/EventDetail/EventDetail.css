@@ -1,24 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body {
-    font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 #EventPageStyle {
-    background-image: url('../createEvent/background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    overflow-x: hidden;
+  background-image: url('../createEvent/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .eventName {
-  color: aliceblue;
-  background: #f76c6c;
-  border-radius: 10px;
-  padding: 2%;
-  width: 90%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  color: white;
+  text-shadow: 2px 2px 8px #000000;
 }
   
 .gapDiv {

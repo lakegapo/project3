@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Row, Col } from "../../Grid";
+import "./commentBox.css";
 
 const CommentBox = props => (
   <div>
-  <textarea onChange={props.handleChange} name="commentBody" id="editAddress" rows="2"></textarea>
-  <button onClick={props.handleClick}>Click Here</button>
+  <textarea onChange={props.handleChange} name="commentBody" id="editAddress" cols="47" rows="3" placeholder="Comment here..."></textarea>
+  <button className="btn commentButton" onClick={props.handleClick}>Comment</button>
 </div>
 );
 
