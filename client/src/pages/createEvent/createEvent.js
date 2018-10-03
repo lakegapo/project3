@@ -28,7 +28,10 @@ class CreateEvent extends Component {
         if (name === "category" || name === "citystate") {
             value = value.toLowerCase().trim().replace(/ /g, "-");
         }
-        this.setState({ [name]: value }, () => { console.log(name, value) })
+        this.setState({ [name]: value }, () => { console.log(name, value) });
+
+                
+
     }
 
     // Grabbing date
@@ -58,12 +61,17 @@ class CreateEvent extends Component {
         console.log("this.state.description: ", this.state.description);
         const loggedUser = sessionStorage.getItem("userId");
 
+
+        // Check for blank fields
         var array = Object.keys(this.state);
         array.forEach(key => {
             if (this.state[key] === "" && key !== "address2" && key !== "citystate") {
                 ok = false;
                 console.log(key);
-                document.querySelector(`input[name=${key}`).style.background = "rgba(255, 0, 0, 0.1)";
+                if (key !== "description") {
+                    document.querySelector(`input[name=${key}`).style.background = "rgba(255, 192, 203, 1)";
+                }
+                document.getElementById("eventDesciption").style.background = "rgba(255, 192, 203, 1)";
             } else {
                 axios.post("/api/events", {
                     name: this.state.name,
@@ -86,7 +94,11 @@ class CreateEvent extends Component {
                         console.error(err)
                     });
             }
-        })
+        });
+
+        if (ok === false) {
+            alert("Please fill out missing items");
+        }
 
     };
 
@@ -214,8 +226,8 @@ class CreateEvent extends Component {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="eventDescription" className=" createLabel">Event Description</label>
-                                        <input className="form-control" id="eventDesciption" name="description" onChange={this.handleChange} rows="3" />
+                                        <label htmlFor="eventDescription" className="createLabel">Event Description</label>
+                                        <textarea className="form-control" id="eventDesciption" name="description" onChange={this.handleChange} rows="3"></textarea>
                                     </div>
                                     <button type="submit" className="btn submitButton" onClick={this.handleFormSubmit}>Create Event</button>
                                 </form>
