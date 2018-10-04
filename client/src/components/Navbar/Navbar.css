@@ -9,13 +9,12 @@
     z-index: 1;
 }
 .navbar a {
-    color: darkblue !important;
+    color: black !important;
 }
 .navbarLogo {
     height: 35px;
     position: relative;
-    bottom: 5px;
-
+    bottom: 8px;
 }
 
 .nav-left {

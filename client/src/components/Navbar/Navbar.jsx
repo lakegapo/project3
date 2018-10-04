@@ -2,6 +2,11 @@ import React from "react";
 import "./Navbar.css";
 import whosdownblack from "../../static/images/WhosDownBlack.png";
 
+const handleClick = () => {
+    sessionStorage.removeItem("userId");
+    window.location.assign("/");
+}
+
 export const Navbar = () => {
 
     return (
@@ -11,11 +16,11 @@ export const Navbar = () => {
             </div>
 
             <div className="navbarfont nav-item nav-mid">
-                <a className="nav-link" href="/home">Categories</a>
+                <a className="fa nav-link" href="/create">&#xf055;</a>
             </div>
 
             <div className="navbarfont nav-item nav-right">
-                <a className="fa nav-link" href="/logout">&#xf011;</a>
+                <a className="fa nav-link" onClick={handleClick}>&#xf011;</a>
             </div>
         </nav>
     )

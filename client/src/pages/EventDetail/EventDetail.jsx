@@ -11,10 +11,16 @@ import JoinEventButton from '../../components/EventButton/JoinEventButton'
 import EventAddress from '../../components/EventDetail/EventAddress/EventAddress'
 import PeopleJoined from '../../components/EventDetail/PeopleJoined/PeopleJoined';
 import PeopleJoinedItem from "../../components/EventDetail/PeopleJoined/PeopleJoinedItem";
+import Geocode from "react-geocode";
 import "./EventDetail.css";
 
 
 class EventDetail extends Component {
+
+    constructor(props) {
+        super(props);
+        Geocode.setApiKey("AIzaSyCmg-aZlnjf6veyiNfkBYW3_B-iBYCCyek");
+    }
 
     state = {
         name: "",
@@ -28,10 +34,11 @@ class EventDetail extends Component {
         comments: [],
         attendees: [],
         eventCreator: "",
-        date: ""
-    }
+        date: "",
+        long: "",
+        lat: ""
+    } 
 
-    
   titleCase = str => {
     return str.toLowerCase().split(' ').map(function(word) {
       return (word.charAt(0).toUpperCase() + word.slice(1));
@@ -45,6 +52,20 @@ class EventDetail extends Component {
         });
     };
 
+
+getGeocode = () => {
+    Geocode.fromAddress(this.state.address + "," + this.state.zip)
+    .then(
+        response => {
+            this.setState({
+                long: response.results[0].geometry.location.lng,
+                lat: response.results[0].geometry.location.lat
+            })
+            console.log("GEOCODE RESPONSE:" , response.results[0].geometry.location);
+        }
+    )
+};
+
     onHandleClick = event => {
         event.preventDefault();
         axios.post("/api/comments", {
@@ -54,6 +75,13 @@ class EventDetail extends Component {
         })
             .then(resp => {
                 console.log(resp);
+                const id = this.props.match.params.id;
+                axios.get("/api/comments/" + id)
+                .then(resp => {
+                    this.setState({
+                        comments: resp.data
+                    })
+                });
             })
             .catch(err => {
                 console.log(err);
@@ -70,6 +98,14 @@ class EventDetail extends Component {
         })
             .then(resp => {
                 console.log(resp);
+                const id = this.props.match.params.id;
+                axios.get("/api/guests/" + id)
+                .then(resp => {
+                    // console.log("guests", resp, "///////");
+                    this.setState({
+                        attendees: resp.data
+                    })
+                }); 
             })
             .catch(err => {
                 console.log(err);
@@ -82,7 +118,7 @@ class EventDetail extends Component {
         const id = this.props.match.params.id;
         axios.get("/api/eventdetail/" + id)
             .then(resp => {
-                console.log(resp);
+                // console.log(resp);
                 const cleanCityState = resp.data.citystate.replace(/-/g," ");
                 const upperCaseCityState = this.titleCase(cleanCityState);
                 this.setState({
@@ -95,6 +131,7 @@ class EventDetail extends Component {
                     eventCreator: resp.data.User.firstName,
                     date: resp.data.date
                 })
+                this.getGeocode();
             });
         axios.get("/api/comments/" + id)
             .then(resp => {
@@ -104,11 +141,11 @@ class EventDetail extends Component {
             });
         axios.get("/api/guests/" + id)
             .then(resp => {
-                console.log("guests", resp, "///////");
+                // console.log("guests", resp, "///////");
                 this.setState({
                     attendees: resp.data
                 })
-            });
+            });    
     };
 
     render() {
@@ -134,7 +171,7 @@ class EventDetail extends Component {
                     <div className="row justify-content-center">
                         <div className='col-sm-auto'>
                             <div className="mapWrapper">
-                                <GoogleApiWrapper />
+                                <GoogleApiWrapper geoLat={this.state.lat} geoLong={this.state.long}/>
                             </div>
                         </div>
                     </div>
@@ -159,7 +196,6 @@ class EventDetail extends Component {
                                         <PeopleJoinedItem
                                             key={attendee.id}
                                             firstName = {attendee.User.firstName}
-                                            imageUrl = {attendee.User.imageUrl}
                                         />
                                     );
                                 })}

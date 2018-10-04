@@ -1,0 +1,16 @@
+#editAddress {
+    border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: 2px solid #f76c6c;
+    margin-left: 1.5px;
+}
+.commentButton {
+    background-color: #f76c6c;
+    color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-top: 2.5px;
+    float: right;
+}
+.commentButton:active {
+    color: #374785;
+}
