@@ -4,7 +4,7 @@ import moment from 'moment';
 
 export const EventsListItems = props => (
   <li id="eventslistitems" className="list-group-item">
-    <a data-toggle="collapse" data-target={`#collapse${props.href}`} aria-expanded="true" aria-controls={`collapse${props.href}`} id="eventsListItemsTitle"><h3>{props.title}</h3></a>
+    <a data-toggle="collapse" data-target={`#collapse${props.href}`} aria-expanded="true" aria-controls={`collapse${props.href}`} id="eventsListItemsTitle"><h3 className="eventsListItemsTitle">{props.title}</h3></a>
     <div id={`collapse${props.href}`} className="collapse" data-parent="#accordionEvents">
       <div className="card-body">
         <p><div className="eventsListItemsSubtitle">Description:</div> {props.description}</p>
