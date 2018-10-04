@@ -1,21 +1,25 @@
 import React from "react";
-import { Container, Row, Col } from "../../Grid";
+import moment from 'moment';
+import './commentBox.css';
 
 const CommentListItem = props => (
-  <li className="list-group-item">
-    <Container>
-      <Row>
-        <Col size="sm-3">
-          <p>{props.userName}</p>
-          <img src={props.imageUrl}/>
-        </Col>
-        <Col size="sm-9">
-          <p>Posting Date: {props.postDate}</p>
-          <div>{props.commentBody}</div>
-        </Col>
-      </Row>
-    </Container>
-  </li>
+  
+  <div id="commentContainer" className="container">
+    <div className="container-fluid">
+      <p className='userName'>{props.userName}</p>
+    </div>
+
+    <div className="row justify-content-center">
+      <div className="col-sm-12">
+      <img className='avatar' src={props.imageUrl}/>
+      <div className="dateAndComment">
+        <p>{moment(props.postDate).format("MMM Do, YYYY hh:mm A")}</p>
+        <div>{props.commentBody}</div>
+      </div>
+      </div>
+    </div>  
+  </div>
+  
 );
 
-export default CommentListItem;
+export default CommentListItem
