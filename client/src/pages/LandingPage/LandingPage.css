@@ -119,6 +119,7 @@
     font-size: 15px;
     margin-top: 25px;
     color: white;
+    line-height: 1.5;
 }
 
 #copyright {
@@ -161,3 +162,17 @@ form {
     width: 100%;
     height: 100vh;
 }
+
+.landingPageTextDiv {
+    width: 80vw;
+}
+
+@media only screen and (min-width: 600px) {
+    .landingPageTextDiv {
+      width: 450px;
+    }
+
+    .buttonContainer {
+        width: 450px;
+    }
+  }
