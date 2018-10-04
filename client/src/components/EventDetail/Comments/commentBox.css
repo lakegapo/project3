@@ -3,6 +3,7 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     border: 2px solid #f76c6c;
     margin-left: 1.5px;
+    width: 100%;
 }
 .commentButton {
     background-color: #f76c6c;
@@ -13,4 +14,8 @@
 }
 .commentButton:active {
     color: #374785;
+}
+
+.commentBoxDiv {
+    width: 90vw;
 }
