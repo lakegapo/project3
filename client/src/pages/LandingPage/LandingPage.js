@@ -47,7 +47,7 @@ class LandingPage extends Component {
                     </h2>
                 </section>
                 <div className="row justify-content-center">
-                    <div className="col-sm-8">
+                    <div className="col-sm-auto landingPageTextDiv">
                         <h2 id="landingPageText">
                             Who's Down? is an app that helps you easily find people with common ground.
                             Search for and join events all around the world or create your own!

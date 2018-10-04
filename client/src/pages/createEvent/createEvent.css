@@ -114,3 +114,7 @@ option {
     border-radius: 5px;
     
 }
+
+.formDiv {
+    width: 400px;
+}
