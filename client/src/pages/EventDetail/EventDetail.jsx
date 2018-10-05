@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-// import { CommentList, CommentListItem, CommentBox } from "../../components/EventDetail/Comments";
 import CommentBox from "../../components/EventDetail/Comments/commentBox";
 import CommentList from "../../components/EventDetail/Comments/commentList";
 import CommentListItem from "../../components/EventDetail/Comments/commentListItem";
@@ -92,6 +91,9 @@ getGeocode = () => {
         event.preventDefault();
         // console.log(this.state.loggedUser);
         console.log(this.state.id);
+        if (sessionStorage.getItem("userId")) {
+
+        
         axios.post("/api/guests", {
             userId: this.state.loggedUser,
             eventId: this.state.id
@@ -110,7 +112,10 @@ getGeocode = () => {
             .catch(err => {
                 console.log(err);
             })
-    }
+        } else {
+            alert("Must be logged in to join");
+        }
+    };
 
 
     componentDidMount() {
@@ -171,8 +176,10 @@ getGeocode = () => {
                     <div className="row justify-content-center">
                         <div className='col-sm-auto'>
                             <div className="mapWrapper">
+                            {this.state.lat && 
                                 <GoogleApiWrapper geoLat={this.state.lat} geoLong={this.state.long}/>
-                            </div>
+                            }
+                                </div>
                         </div>
                     </div>
 

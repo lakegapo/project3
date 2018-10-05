@@ -72,32 +72,32 @@ class CreateEvent extends Component {
                     document.querySelector(`input[name=${key}`).style.background = "rgba(255, 192, 203, 1)";
                 }
                 document.getElementById("eventDesciption").style.background = "rgba(255, 192, 203, 1)";
-            } else {
-                axios.post("/api/events", {
-                    name: this.state.name,
-                    category: this.state.category,
-                    date: this.state.date,
-                    time: this.state.time,
-                    address1: this.state.address1,
-                    address2: this.state.address2,
-                    citystate: this.state.citystate,
-                    zip: this.state.zip,
-                    description: this.state.description,
-                    UserId: loggedUser
-                })
-                    .then(resp => {
-                        if (ok) {
-                            window.location.assign("/eventdetail/" + resp.data.id);
-                        }
-                    })
-                    .catch(err => {
-                        console.error(err)
-                    });
-            }
+            } 
         });
 
         if (ok === false) {
             alert("Please fill out missing items");
+        } else {
+            axios.post("/api/events", {
+                name: this.state.name,
+                category: this.state.category,
+                date: this.state.date,
+                time: this.state.time,
+                address1: this.state.address1,
+                address2: this.state.address2,
+                citystate: this.state.citystate,
+                zip: this.state.zip,
+                description: this.state.description,
+                UserId: loggedUser
+            })
+                .then(resp => {
+                    if (ok) {
+                        window.location.assign("/eventdetail/" + resp.data.id);
+                    }
+                })
+                .catch(err => {
+                    console.error(err)
+                });
         }
 
     };
