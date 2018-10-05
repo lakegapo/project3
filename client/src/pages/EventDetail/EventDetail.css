@@ -7,7 +7,7 @@ body {
 #EventPageStyle {
   background-image: url('../createEvent/background.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   width: 100%;
   overflow-x: hidden;
 }
