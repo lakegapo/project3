@@ -216,7 +216,7 @@ getGeocode = () => {
                                 handleChange={this.handleInputChange}
                                 handleClick={this.onHandleClick}
                             />
-                            <CommentList>
+                            <CommentList >
                                 {this.state.comments.map(comment => {
                                     return (
                                         <CommentListItem
@@ -227,7 +227,7 @@ getGeocode = () => {
                                             postDate={comment.createdAt}
                                         />
                                     );
-                                })};
+                                })}
                             </CommentList>
                         </div>
                     </div>

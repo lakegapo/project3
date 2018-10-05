@@ -5,6 +5,47 @@
     margin-left: 1.5px;
     width: 100%;
 }
+
+#commentContainer{
+    width: 100%;
+    border: 1px powderblue solid;
+    background: rgb(222, 237, 246);
+    text-align: left;
+    margin-top: 40px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: 2px solid #f76c6c;
+    padding: 5px 10px 10px 10px;
+    width: 65vw;
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    margin: 0px 8px 0px 8px;
+    float: left;
+    
+}
+
+.userName{
+    background-color: #374785;
+    color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 1.2em;
+    border: 2px solid #f76c6c;
+}
+
+.dateAndComment{
+    margin-left: 8px;
+    
+}
+
 .commentButton {
     background-color: #f76c6c;
     color: white;
