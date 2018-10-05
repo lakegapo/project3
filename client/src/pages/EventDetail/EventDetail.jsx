@@ -91,6 +91,9 @@ getGeocode = () => {
         event.preventDefault();
         // console.log(this.state.loggedUser);
         console.log(this.state.id);
+        if (sessionStorage.getItem("userId")) {
+
+        
         axios.post("/api/guests", {
             userId: this.state.loggedUser,
             eventId: this.state.id
@@ -109,7 +112,10 @@ getGeocode = () => {
             .catch(err => {
                 console.log(err);
             })
-    }
+        } else {
+            alert("Must be logged in to join");
+        }
+    };
 
 
     componentDidMount() {
