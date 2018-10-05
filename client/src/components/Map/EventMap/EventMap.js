@@ -15,12 +15,16 @@ export class MapContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      lat: this.props.geoLat,
+      long: this.props.geoLong
+    }
   }
 
-  state = {
-    lat: this.props.geoLat,
-    long: this.props.geoLong
-  }
+  componentDidMount() {
+    console.log("lat:", this.props);
+  };
+
     render() {
       return (
         <Map 
@@ -28,8 +32,8 @@ export class MapContainer extends Component {
         zoom={11} 
         style={style}
         initialCenter={{
-            lat: this.state.lat,
-            lng: this.state.long
+            lat: this.props.geoLat,
+            lng: this.props.geoLong
           }}
         >
    
