@@ -27,6 +27,7 @@
     "if-env": "^1.0.4",
     "moment": "^2.22.2",
     "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
     "rc-time-picker": "^3.4.0",
     "react-bootstrap": "^0.32.4",
