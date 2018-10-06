@@ -42,26 +42,18 @@ class CreateEvent extends Component {
     // Grabbing time
     handleTimeChange = (time) => {
         this.setState({ time });
+        console.log(this.state.time);
     }
 
     // Console logs state and submits form. Redirects to Event Detail Page pending
     handleFormSubmit = (event) => {
         let ok = true;
         event.preventDefault();
-        console.log(sessionStorage.getItem("userId"));
-        console.log("Event Creation Details");
-        console.log("this.state.name: ", this.state.name);
-        console.log("this.state.time: ", this.state.time);
-        console.log("this.state.category: ", this.state.category);
-        console.log("this.state.date: ", this.state.date);
-        console.log("this.state.address1: ", this.state.address1);
-        console.log("this.state.address2: ", this.state.address2);
-        console.log("this.state.citystate: ", this.state.citystate);
-        console.log("this.state.zip: ", this.state.zip);
-        console.log("this.state.description: ", this.state.description);
         const loggedUser = sessionStorage.getItem("userId");
+        console.log("current state time: ",this.state.time);
+        console.log("current state date: ",this.state.date)
 
-
+    
         // Check for blank fields
         var array = Object.keys(this.state);
         array.forEach(key => {

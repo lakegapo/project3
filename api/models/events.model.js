@@ -7,7 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     zip: DataTypes.TEXT,
     description: DataTypes.TEXT,
     category: DataTypes.TEXT,
-    date: DataTypes.TEXT
+    date: DataTypes.TEXT,
+    time: DataTypes.TEXT
   });
 
   Events.associate = function(models) {
