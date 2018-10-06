@@ -126,6 +126,7 @@ getGeocode = () => {
                 // console.log(resp);
                 const cleanCityState = resp.data.citystate.replace(/-/g," ");
                 const upperCaseCityState = this.titleCase(cleanCityState);
+
                 this.setState({
                     name: resp.data.name,
                     description: resp.data.description,
@@ -134,8 +135,10 @@ getGeocode = () => {
                     cityState: upperCaseCityState,
                     zip: resp.data.zip,
                     eventCreator: resp.data.User.firstName,
-                    date: resp.data.date
+                    date: resp.data.date,
+                    time: resp.data.time
                 })
+                console.log("stae time: ",this.state.time);
                 this.getGeocode();
             });
         axios.get("/api/comments/" + id)
@@ -191,7 +194,7 @@ getGeocode = () => {
 
                     <div className="row justify-content-center">
                         <div className="col-sm-auto">
-                            <EventDescription description={this.state.description} eventDate={this.state.date} createdBy={this.titleCase(this.state.eventCreator)} />
+                            <EventDescription description={this.state.description} eventDate={this.state.date} eventTime={this.state.time} createdBy={this.titleCase(this.state.eventCreator)} />
                         </div>
                     </div>
 

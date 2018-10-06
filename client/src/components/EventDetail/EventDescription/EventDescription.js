@@ -11,7 +11,7 @@ const EventDescription = props => (
     </div>
     <div className="row justify-content-center">
       <div className="col-sm-12">
-        <div className='descriptionStyle'><i className='fa'>&#xf073;</i>Event Starting: {moment(props.eventDate).format("MMM Do, YYYY hh:mm A")}</div>
+        <div className='descriptionStyle'><i className='fa'>&#xf073;</i>Event Starting: {moment(props.eventDate).format("MMM Do, YYYY")} {props.eventTime}</div>
         <div className='descriptionStyle'><i className='fa'>&#xf2be;</i>Hosted By: {props.createdBy}</div>
         <div className='descriptionStyle'><i className='fa'>&#xf075;</i>{props.description}</div>
       </div>
@@ -20,3 +20,5 @@ const EventDescription = props => (
 );
 
 export default EventDescription;
+
+//stashing the work in progess moment conversion of time here {moment(props.eventTime).format("hh:mm")}

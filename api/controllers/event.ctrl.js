@@ -12,7 +12,8 @@ module.exports = {
       description: req.body.description,
       UserId : req.body.UserId,
       category: req.body.category,
-      date: req.body.date
+      date: req.body.date,
+      time: req.body.time
     };
     models.Event.create(event)
       .then(resp => {
